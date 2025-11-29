@@ -1,7 +1,5 @@
 "use client"
 
-import Image from "next/image"
-
 export function PhoneMockup() {
   return (
     <div className="relative animate-float">
@@ -14,12 +12,10 @@ export function PhoneMockup() {
         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-10" />
 
         <div className="relative w-full h-full bg-[#0a0a0a] rounded-[32px] overflow-hidden">
-          <Image
-            src="/recobra-app-screenshot.png"
+          <img
+            src="recobra-app-screenshot.png"
             alt="Recobra App - Listo para enfocarte"
-            fill
-            className="object-contain"
-            style={{ paddingTop: "2rem" }}
+            className="w-full h-full object-contain pt-8"
           />
         </div>
 

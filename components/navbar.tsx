@@ -4,7 +4,6 @@ import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { WaitlistModal } from "@/components/waitlist-modal"
-import Image from "next/image"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,7 +13,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-2">
-            <Image src="/recobra-logo.png" alt="Recobra" width={36} height={36} className="w-9 h-9" />
+            <img src="recobra-logo.png" alt="Recobra" className="w-9 h-9" />
             <span className="text-2xl font-bold text-white">Recobra</span>
           </a>
 

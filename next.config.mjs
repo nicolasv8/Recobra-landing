@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const isProd = process.env.NODE_ENV === "production";
-
 const nextConfig = {
   output: "export",
   typescript: {
@@ -10,8 +8,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isProd ? "/Recobra-landing" : "",
-  assetPrefix: isProd ? "/Recobra-landing/" : "",
 };
 
 export default nextConfig;
