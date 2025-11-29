@@ -54,9 +54,9 @@ export function HowItWorks() {
   }, [])
 
   return (
-    <section id="como-funciona" className="py-16 md:py-24 relative">
+    <section id="como-funciona" className="py-10 md:py-14 relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Cómo funciona</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Tres simples pasos para recuperar el control de tu tiempo

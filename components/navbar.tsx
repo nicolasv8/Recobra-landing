@@ -106,7 +106,10 @@ export function Navbar() {
               Preguntas frecuentes
             </a>
             <WaitlistModal>
-              <Button className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2">
+              <Button 
+                className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2"
+                onClick={() => setIsOpen(false)}
+              >
                 Reservar tarjeta
               </Button>
             </WaitlistModal>

@@ -70,12 +70,12 @@ export function Benefits() {
   }, [])
 
   return (
-    <section id="beneficios" className="py-16 md:py-24 relative">
+    <section id="beneficios" className="py-10 md:py-14 relative">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0bb37a]/5 to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Beneficios</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Todo lo que necesitas para recuperar el control de tu vida digital

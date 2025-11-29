@@ -29,7 +29,7 @@ export function FinalCta() {
   }, [])
 
   return (
-    <section className="py-16 md:py-24 relative" ref={sectionRef}>
+    <section className="py-10 md:py-14 relative" ref={sectionRef}>
       <div className="max-w-4xl mx-auto px-6 text-center">
         <div
           className={`transition-all duration-700 ${
@@ -37,10 +37,10 @@ export function FinalCta() {
           }`}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance">
-            Recobra tu tiempo hoy.
+            Recobra tu tiempo <span className="text-[#0bb37a]">hoy</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
-            Únete a miles de personas que ya recuperaron el control de su vida digital con Recobra.
+            Tu tiempo es lo más importante. Reserva tu tarjeta hoy y recobra el control de tu vida digital
           </p>
 
           <WaitlistModal>

@@ -7,7 +7,7 @@ import { ArrowRight, Focus, Heart, Users } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen pt-24 pb-16 overflow-hidden">
+    <section className="relative min-h-screen pt-20 pb-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#0bb37a]/8 via-transparent to-transparent" />
       <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-[#0bb37a]/5 blur-[150px] rounded-full -translate-x-1/2" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#0bb37a]/10 blur-[120px] rounded-full translate-x-1/3 translate-y-1/3" />

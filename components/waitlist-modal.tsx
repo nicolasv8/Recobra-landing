@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, ReactNode, useState, cloneElement, isValidElement } from "react"
+import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 
 interface WaitlistModalProps {
@@ -9,8 +10,14 @@ interface WaitlistModalProps {
 
 export function WaitlistModal({ children }: WaitlistModalProps) {
   const [open, setOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const modalRef = useRef<HTMLDivElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
+
+  // Check if component is mounted (client-side only)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Load Tally script only once
   useEffect(() => {
@@ -73,7 +80,7 @@ export function WaitlistModal({ children }: WaitlistModalProps) {
     }
   }, [open])
 
-  // Handle Escape key
+  // Handle Escape key and scroll management
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && open) {
@@ -82,14 +89,27 @@ export function WaitlistModal({ children }: WaitlistModalProps) {
     }
 
     if (open) {
-      document.addEventListener("keydown", handleEscape)
       // Prevent body scroll when modal is open
+      const scrollY = window.scrollY
+      document.body.style.position = "fixed"
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.width = "100%"
       document.body.style.overflow = "hidden"
+      
+      document.addEventListener("keydown", handleEscape)
     }
 
     return () => {
       document.removeEventListener("keydown", handleEscape)
+      // Restore scroll position
+      const scrollY = document.body.style.top
+      document.body.style.position = ""
+      document.body.style.top = ""
+      document.body.style.width = ""
       document.body.style.overflow = ""
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || "0") * -1)
+      }
     }
   }, [open])
 
@@ -114,50 +134,55 @@ export function WaitlistModal({ children }: WaitlistModalProps) {
       })
     : children
 
+  const modalContent = open && mounted ? (
+    createPortal(
+      <>
+        {/* Overlay */}
+        <div
+          ref={overlayRef}
+          className="fixed inset-0 z-[9999] bg-black/70 flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={handleOverlayClick}
+        >
+          {/* Modal */}
+          <div
+            ref={modalRef}
+            className="relative bg-[#0a0a0a] rounded-2xl border border-white/10 p-4 w-full max-w-[520px] min-w-[320px] max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute top-4 right-4 z-10 text-white opacity-60 hover:opacity-100 transition-opacity p-1"
+              aria-label="Cerrar modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Tally Form */}
+            <div className="w-full">
+              <iframe
+                data-tally-src="https://tally.so/embed/44ao0o?alignLeft=1&transparentBackground=1&dynamicHeight=1"
+                loading="lazy"
+                width="100%"
+                height="1007"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                title="Lista de Espera Recobra"
+                className="w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </>,
+      document.body
+    )
+  ) : null
+
   return (
     <>
       {trigger}
-      {open && (
-        <>
-          {/* Overlay */}
-          <div
-            ref={overlayRef}
-            className="fixed inset-0 z-[100] bg-black/70 flex items-center justify-center p-4 animate-in fade-in duration-200"
-            onClick={handleOverlayClick}
-          >
-            {/* Modal */}
-            <div
-              ref={modalRef}
-              className="relative bg-[#0a0a0a] rounded-2xl border border-white/10 p-4 w-full max-w-[520px] min-w-[320px] max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-200"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setOpen(false)}
-                className="absolute top-4 right-4 z-10 text-white opacity-60 hover:opacity-100 transition-opacity p-1"
-                aria-label="Cerrar modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {/* Tally Form */}
-              <div className="w-full">
-                <iframe
-                  data-tally-src="https://tally.so/embed/44ao0o?alignLeft=1&transparentBackground=1&dynamicHeight=1"
-                  loading="lazy"
-                  width="100%"
-                  height="1007"
-                  frameBorder="0"
-                  marginHeight={0}
-                  marginWidth={0}
-                  title="Lista de Espera Recobra"
-                  className="w-full"
-                />
-              </div>
-            </div>
-          </div>
-        </>
-      )}
+      {modalContent}
     </>
   )
 }

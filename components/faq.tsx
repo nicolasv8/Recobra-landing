@@ -5,14 +5,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqs = [
   {
-    question: "¿Cómo funciona el bloqueo con la tarjeta NFC?",
+    question: "¿Cómo funciona el bloqueo con la tarjeta Recobra?",
     answer:
-      "Cuando acercas la tarjeta Recobra a tu celular, la app detecta el chip NFC y activa inmediatamente el bloqueo de las aplicaciones que hayas seleccionado. El bloqueo es real y no se puede desactivar fácilmente como otras apps.",
+      "Cuando acercas la tarjeta a tu celular, la app de Recobra la detecta y activa inmediatamente el bloqueo de las aplicaciones que hayas seleccionado. El bloqueo es real y no se puede posponer ni desactivar fácilmente como en otras apps.",
   },
   {
     question: "¿Es compatible con mi celular?",
     answer:
-      "Recobra es compatible con la mayoría de smartphones Android con NFC (Android 8.0 o superior) y iPhones (iPhone 7 o superior con iOS 13+). Puedes verificar si tu celular tiene NFC en la configuración.",
+      "Actualmente Recobra es compatible con iPhones (iPhone 7 o superior con iOS 13+). Proximamente estará disponible para Android.",
   },
   {
     question: "¿Puedo elegir qué apps bloquear?",
@@ -22,17 +22,17 @@ const faqs = [
   {
     question: "¿Qué pasa si pierdo mi tarjeta?",
     answer:
-      "No te preocupes. Puedes desactivar tu tarjeta perdida desde la app y solicitar una tarjeta de reemplazo. También puedes configurar un código de emergencia para casos excepcionales.",
+      "No te preocupes. Escríbenos a recobratutiempo@gmail.com para iniciar el proceso de reposición de tu tarjeta y en caso de que hayas perdido la tarjeta durante una sesión activa, para ayudarte a desbloquear la sesión de enfoque.",
   },
   {
     question: "¿Cuánto dura una sesión de bloqueo?",
     answer:
-      "Tú decides la duración. Puedes configurar sesiones desde 15 minutos hasta varias horas. También puedes programar bloqueos automáticos en horarios específicos.",
+      "Tú decides la duración. La sesión de enfoque termina una vez la desactives acercando la tarjeta. También puedes programar bloqueos automáticos en horarios específicos. Por ejemplo, durante tu jornada laboral.",
   },
   {
     question: "¿Puedo usar Recobra sin la tarjeta física?",
     answer:
-      "La tarjeta NFC es parte esencial de la experiencia Recobra. El acto físico de tocar la tarjeta crea un ritual que refuerza tu intención de enfocarte. Sin embargo, también puedes iniciar sesiones desde la app.",
+      "No. La tarjeta es parte esencial de la experiencia Recobra y la que garantiza que nuestra solución sea la mejor para recobrar tu tiempo. El acto físico de tocar la tarjeta crea un ritual que refuerza tu intención de enfocarte.",
   },
 ]
 
@@ -60,10 +60,10 @@ export function FAQ() {
   }, [])
 
   return (
-    <section id="faq" className="py-16 md:py-24 relative" ref={sectionRef}>
+    <section id="faq" className="py-10 md:py-14 relative" ref={sectionRef}>
       <div className="max-w-3xl mx-auto px-6">
         <div
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-10 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >

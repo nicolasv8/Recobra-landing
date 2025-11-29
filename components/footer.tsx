@@ -22,7 +22,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-muted-foreground text-sm">© 2025 Recobra. Todos los derechos reservados.</p>
+          <p className="text-muted-foreground text-sm">© 2025 Recobra. Hecho por Nico y Damián para tu bienestar.</p>
         </div>
       </div>
     </footer>

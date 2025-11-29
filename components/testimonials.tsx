@@ -51,16 +51,16 @@ export function Testimonials() {
   }, [])
 
   return (
-    <section id="testimonios" className="py-16 md:py-24 relative" ref={sectionRef}>
+    <section id="testimonios" className="py-10 md:py-14 relative" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
         <div
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-10 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Lo que dicen nuestros usuarios</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Miles de personas ya están recuperando su tiempo con Recobra
+            Decenas de personas ya están recobrando su tiempo para lo que verdaderamente importa gracias a Recobra
           </p>
         </div>
 
