@@ -1,7 +1,12 @@
 self.__BUILD_MANIFEST = {
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [],
+    "beforeFiles": [
+      {
+        "source": "/Recobra-landing//_next/:path+",
+        "destination": "/Recobra-landing/_next/:path+"
+      }
+    ],
     "fallback": []
   },
   "sortedPages": [
