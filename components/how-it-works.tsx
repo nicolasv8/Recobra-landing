@@ -1,26 +1,23 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Wifi, Ban, Clock } from "lucide-react"
+import { Smartphone, CreditCard, Sparkles } from "lucide-react"
 
 const steps = [
   {
-    icon: Wifi,
+    icon: Smartphone,
+    title: "Escoge las apps a bloquear",
+    description: "Abre la app de Recobra y selecciona las aplicaciones que deseas bloquear.",
+  },
+  {
+    icon: CreditCard,
     title: "Toca la tarjeta",
-    description:
-      "Acerca la tarjeta NFC a tu celular para activar instantáneamente el modo de bloqueo. Sin apps, sin configuración.",
+    description: "Acerca la tarjeta Recobra a tu celular para iniciar una sesión de enfoque.",
   },
   {
-    icon: Ban,
-    title: "Apps bloqueadas",
-    description:
-      "Instagram, TikTok, X y otras apps adictivas quedan bloqueadas. Tú decides cuáles y por cuánto tiempo.",
-  },
-  {
-    icon: Clock,
+    icon: Sparkles,
     title: "Recupera tu tiempo",
-    description:
-      "Recupera horas de tu día para lo que realmente importa. Más productividad, más bienestar, más vida real.",
+    description: "Para lo que realmente importa. Más productividad, más bienestar, más vida real.",
   },
 ]
 

@@ -1,7 +1,9 @@
 import { HeroSection } from "@/components/hero-section"
 import { HowItWorks } from "@/components/how-it-works"
-import { NfcCard } from "@/components/nfc-card"
+import { Comparison } from "@/components/comparison"
+import { Testimonials } from "@/components/testimonials"
 import { Benefits } from "@/components/benefits"
+import { FAQ } from "@/components/faq"
 import { FinalCta } from "@/components/final-cta"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -12,9 +14,11 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <HowItWorks />
-      <NfcCard />
       <Benefits />
+      <Comparison />
+      <Testimonials />
       <FinalCta />
+      <FAQ />
       <Footer />
     </main>
   )

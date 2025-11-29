@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { PhoneMockup } from "@/components/phone-mockup"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Focus, Heart, Users } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -50,22 +50,41 @@ export function HeroSection() {
               </Button>
             </div>
 
-            <div className="flex flex-wrap gap-10 mt-6 pt-6 border-t border-white/10">
-              <div className="flex flex-col">
-                <span className="text-4xl md:text-5xl font-bold text-white">
-                  2h<span className="text-[#0bb37a]">+</span>
-                </span>
-                <span className="text-sm text-muted-foreground mt-1">tiempo recuperado/día</span>
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 mt-6 pt-6 border-t border-white/10">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#0bb37a]/10 flex items-center justify-center flex-shrink-0">
+                  <Focus className="w-5 h-5 text-[#0bb37a]" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-white font-bold">Concentración</span>
+                  <span className="text-sm text-muted-foreground">
+                    Toca la tarjeta y bloquea apps distractivas,{" "}
+                    <span className="text-[#0bb37a] font-semibold">de verdad</span>
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="text-4xl md:text-5xl font-bold text-white">NFC</span>
-                <span className="text-sm text-muted-foreground mt-1">sin configuración</span>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#0bb37a]/10 flex items-center justify-center flex-shrink-0">
+                  <Users className="w-5 h-5 text-[#0bb37a]" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-white font-bold">Conexión</span>
+                  <span className="text-sm text-muted-foreground">
+                    Con lo que más importa, <span className="text-[#0bb37a] font-semibold">fuera de tu celular</span>
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="text-4xl md:text-5xl font-bold text-white">
-                  100<span className="text-[#0bb37a]">%</span>
-                </span>
-                <span className="text-sm text-muted-foreground mt-1">control real</span>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#0bb37a]/10 flex items-center justify-center flex-shrink-0">
+                  <Heart className="w-5 h-5 text-[#0bb37a]" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-white font-bold">Bienestar</span>
+                  <span className="text-sm text-muted-foreground">
+                    Vuelve a sentirte bien.{" "}
+                    <span className="text-[#0bb37a] font-semibold">Menos ansiedad, más presencia</span>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
