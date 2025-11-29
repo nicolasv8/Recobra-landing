@@ -13,7 +13,7 @@ export function PhoneMockup() {
 
         <div className="w-full h-full bg-[#0a0a0a] rounded-[32px] overflow-hidden">
           <img
-            src="/images/recobra-app-screenshot.png"
+            src="/recobra-app-screenshot.png"
             alt="Recobra App - Listo para enfocarte"
             className="w-full h-full object-contain pt-8"
           />

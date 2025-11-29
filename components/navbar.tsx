@@ -14,7 +14,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-2">
-            <Image src="/images/recobra-logo.png" alt="Recobra" width={36} height={36} className="w-9 h-9" />
+            <Image src="/recobra-logo.png" alt="Recobra" width={36} height={36} className="w-9 h-9" />
             <span className="text-2xl font-bold text-white">Recobra</span>
           </a>
 
