@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { PhoneMockup } from "@/components/phone-mockup"
+import { WaitlistModal } from "@/components/waitlist-modal"
 import { ArrowRight, Focus, Heart, Users } from "lucide-react"
 
 export function HeroSection() {
@@ -29,22 +30,28 @@ export function HeroSection() {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed">
-              La primera tarjeta NFC + app que te devuelve el control sobre tu celular.
-              <span className="text-white font-medium"> Sin fuerza de voluntad.</span>
+              Una solución física para una vida digital saludable.
+              <span className="text-white font-medium"> Tarjeta + App para eliminar tus distracciones.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
-              <Button
-                size="lg"
-                className="bg-[#0bb37a] hover:bg-[#0dd98b] text-black font-bold rounded-full px-8 py-7 text-lg shadow-lg shadow-[#0bb37a]/30 hover:shadow-[#0bb37a]/40 transition-all hover:scale-105 group"
-              >
-                Reservar tarjeta
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <WaitlistModal>
+                <Button
+                  size="lg"
+                  className="bg-[#0bb37a] hover:bg-[#0dd98b] text-black font-bold rounded-full px-8 py-7 text-lg shadow-lg shadow-[#0bb37a]/30 hover:shadow-[#0bb37a]/40 transition-all hover:scale-105 group"
+                >
+                  Reservar tarjeta
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </WaitlistModal>
               <Button
                 variant="outline"
                 size="lg"
                 className="rounded-full px-8 py-7 text-lg border-white/20 text-white hover:bg-white/10 hover:text-white bg-transparent hover:border-white/30 transition-all"
+                onClick={() => {
+                  const element = document.getElementById("como-funciona");
+                  element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
               >
                 Ver cómo funciona
               </Button>

@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Focus, Zap, Settings, Heart, TrendingUp, Smartphone } from "lucide-react"
+import { Focus, Zap, Settings, Heart, TrendingUp, Timer } from "lucide-react"
+import { Item } from "@radix-ui/react-accordion"
 
 const benefits = [
   {
@@ -30,9 +31,9 @@ const benefits = [
     description: "Más tiempo enfocado significa más logros",
   },
   {
-    icon: Smartphone,
-    title: "Funciona con iPhone/Android",
-    description: "Compatible con cualquier smartphone moderno",
+    icon: Timer,
+    title: "Se adapta a tus horarios",
+    description: "Programa sesiones de enfoque automáticamente",
   },
 ]
 
@@ -69,7 +70,7 @@ export function Benefits() {
   }, [])
 
   return (
-    <section id="beneficios" className="py-24 md:py-32 relative">
+    <section id="beneficios" className="py-16 md:py-24 relative">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0bb37a]/5 to-transparent" />
 

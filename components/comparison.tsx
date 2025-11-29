@@ -5,7 +5,7 @@ import { Check, X } from "lucide-react"
 
 const features = [
   {
-    name: "Bloqueo real sin bypass",
+    name: "Bloqueo real y difícil de saltar",
     recobra: true,
     apps: false,
     willpower: false,
@@ -17,7 +17,7 @@ const features = [
     willpower: false,
   },
   {
-    name: "Personalización de apps bloqueadas",
+    name: "Elige qué apps bloquear",
     recobra: true,
     apps: true,
     willpower: false,
@@ -60,7 +60,7 @@ export function Comparison() {
   }, [])
 
   return (
-    <section id="comparacion" className="py-24 md:py-32 relative" ref={sectionRef}>
+    <section id="comparacion" className="py-16 md:py-24 relative" ref={sectionRef}>
       <div className="max-w-5xl mx-auto px-6">
         <div
           className={`text-center mb-16 transition-all duration-700 ${

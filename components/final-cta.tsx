@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
+import { WaitlistModal } from "@/components/waitlist-modal"
 import { ArrowRight } from "lucide-react"
 
 export function FinalCta() {
@@ -28,7 +29,7 @@ export function FinalCta() {
   }, [])
 
   return (
-    <section className="py-24 md:py-32 relative" ref={sectionRef}>
+    <section className="py-16 md:py-24 relative" ref={sectionRef}>
       <div className="max-w-4xl mx-auto px-6 text-center">
         <div
           className={`transition-all duration-700 ${
@@ -42,13 +43,15 @@ export function FinalCta() {
             Únete a miles de personas que ya recuperaron el control de su vida digital con Recobra.
           </p>
 
-          <Button
-            size="lg"
-            className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-10 py-7 text-lg font-semibold shadow-lg shadow-[#0bb37a]/20 group"
-          >
-            Reservar tarjeta
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <WaitlistModal>
+            <Button
+              size="lg"
+              className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-10 py-7 text-lg font-semibold shadow-lg shadow-[#0bb37a]/20 group"
+            >
+              Reservar tarjeta
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </WaitlistModal>
         </div>
       </div>
     </section>

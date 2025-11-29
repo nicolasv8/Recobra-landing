@@ -54,7 +54,7 @@ export function HowItWorks() {
   }, [])
 
   return (
-    <section id="como-funciona" className="py-24 md:py-32 relative">
+    <section id="como-funciona" className="py-16 md:py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Cómo funciona</h2>

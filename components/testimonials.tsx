@@ -1,29 +1,29 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Star, Briefcase, GraduationCap, Palette } from "lucide-react"
+import { Star, Briefcase, GraduationCap, UserRound } from "lucide-react"
 
 const testimonials = [
   {
-    name: "María García",
-    role: "Emprendedora",
+    name: "Valeria Noreña",
+    role: "Estudiante",
     content:
-      "Desde que uso Recobra, recuperé al menos 2 horas diarias que antes perdía en redes sociales. Ahora ese tiempo lo dedico a mi negocio y mi familia.",
-    icon: Briefcase,
-  },
-  {
-    name: "Carlos Mendoza",
-    role: "Estudiante de Medicina",
-    content:
-      "Las apps de bloqueo nunca funcionaron para mí porque siempre encontraba la forma de desactivarlas. Con Recobra es diferente, el bloqueo es real.",
+      "Desde que uso Recobra, recuperé más de 2 horas al día que antes perdía en redes sociales. Me siento más enfocada al estudiar y más tranquila en mi día a día.",
     icon: GraduationCap,
   },
   {
-    name: "Ana Rodríguez",
-    role: "Diseñadora UX",
+    name: "Nicolás Velasco",
+    role: "Emprendedor",
     content:
-      "Lo que más me gusta es lo táctil que es. Tocar la tarjeta se convirtió en un ritual que me ayuda a entrar en modo concentración instantáneamente.",
-    icon: Palette,
+      "Me encanta la opción de poder programar bloqueos. Me ayuda a mantenerme enfocado durante las horas más intensas de trabajo.",
+    icon: Briefcase,
+  },
+  {
+    name: "Mónica Corrales",
+    role: "Padre de Familia",
+    content:
+      "Recobra nos ayuda a cuidar a nuestro hijo, limitando su uso de redes y juegos de forma efectiva. Probamos otras apps, pero eran muy fáciles de saltar. La tarjeta física es una excelente idea.",
+    icon: UserRound,
   },
 ]
 
@@ -51,7 +51,7 @@ export function Testimonials() {
   }, [])
 
   return (
-    <section id="testimonios" className="py-24 md:py-32 relative" ref={sectionRef}>
+    <section id="testimonios" className="py-16 md:py-24 relative" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
         <div
           className={`text-center mb-16 transition-all duration-700 ${

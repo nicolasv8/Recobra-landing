@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { WaitlistModal } from "@/components/waitlist-modal"
 import Image from "next/image"
 
 export function Navbar() {
@@ -19,18 +20,44 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#como-funciona" className="text-muted-foreground hover:text-white transition-colors">
+            <a 
+              href="#como-funciona" 
+              className="text-muted-foreground hover:text-white transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById("como-funciona");
+                element?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
               Cómo funciona
             </a>
-            <a href="#tarjeta" className="text-muted-foreground hover:text-white transition-colors">
-              La tarjeta
-            </a>
-            <a href="#beneficios" className="text-muted-foreground hover:text-white transition-colors">
+            <a 
+              href="#beneficios" 
+              className="text-muted-foreground hover:text-white transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById("beneficios");
+                element?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
               Beneficios
             </a>
-            <Button className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-6">
-              Reservar tarjeta
-            </Button>
+            <a 
+              href="#faq" 
+              className="text-muted-foreground hover:text-white transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById("faq");
+                element?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
+              Preguntas frecuentes
+            </a>
+            <WaitlistModal>
+              <Button className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-6">
+                Reservar tarjeta
+              </Button>
+            </WaitlistModal>
           </div>
 
           {/* Mobile Menu Button */}
@@ -45,27 +72,44 @@ export function Navbar() {
             <a
               href="#como-funciona"
               className="text-muted-foreground hover:text-white transition-colors py-2"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(false);
+                const element = document.getElementById("como-funciona");
+                element?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
             >
               Cómo funciona
             </a>
             <a
-              href="#tarjeta"
-              className="text-muted-foreground hover:text-white transition-colors py-2"
-              onClick={() => setIsOpen(false)}
-            >
-              La tarjeta
-            </a>
-            <a
               href="#beneficios"
               className="text-muted-foreground hover:text-white transition-colors py-2"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(false);
+                const element = document.getElementById("beneficios");
+                element?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
             >
               Beneficios
             </a>
-            <Button className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2">
-              Reservar tarjeta
-            </Button>
+            <a
+              href="#faq"
+              className="text-muted-foreground hover:text-white transition-colors py-2"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(false);
+                const element = document.getElementById("faq");
+                element?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
+              Preguntas frecuentes
+            </a>
+            <WaitlistModal>
+              <Button className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2">
+                Reservar tarjeta
+              </Button>
+            </WaitlistModal>
           </div>
         )}
       </div>

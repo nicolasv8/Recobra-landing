@@ -60,7 +60,7 @@ export function FAQ() {
   }, [])
 
   return (
-    <section id="faq" className="py-24 md:py-32 relative" ref={sectionRef}>
+    <section id="faq" className="py-16 md:py-24 relative" ref={sectionRef}>
       <div className="max-w-3xl mx-auto px-6">
         <div
           className={`text-center mb-16 transition-all duration-700 ${
