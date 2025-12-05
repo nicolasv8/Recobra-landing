@@ -43,7 +43,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$vercel$2f$
 ;
 ;
 const metadata = {
-    title: "Recobra tu tiempo, bloquea adicciones",
+    title: "Recobra tu Tiempo, Bloquea Adicciones",
     description: "Una tarjeta NFC + app que te ayuda a recuperar el control limitando el uso adictivo del celular.",
     generator: "v0.app",
     // icons: {
