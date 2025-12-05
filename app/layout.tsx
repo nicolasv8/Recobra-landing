@@ -7,25 +7,22 @@ import "./globals.css"
 const nunito = Nunito({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] })
 
 export const metadata: Metadata = {
-  title: "Recobra - Recupera el control de tu tiempo",
+  title: "Recobra tu Tiempo, Bloquea Adicciones",
   description: "Una tarjeta NFC + app que te ayuda a recuperar el control limitando el uso adictivo del celular.",
   generator: "v0.app",
-  icons: {
-    icon: [
+  // icons: {
+  //   icon: "/icon-32x32.png",
+  //   apple: "/apple-icon.png",
+  // },
+  openGraph: {
+    images: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Recobra",
       },
     ],
-    apple: "/apple-icon.png",
   },
 }
 

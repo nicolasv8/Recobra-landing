@@ -10,7 +10,7 @@ export function Footer() {
 
           {/* Links */}
           <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-white transition-colors">
+            <a href="/privacidad" className="text-muted-foreground hover:text-white transition-colors">
               Privacidad
             </a>
             <a href="#" className="text-muted-foreground hover:text-white transition-colors">
