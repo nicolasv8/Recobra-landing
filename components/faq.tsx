@@ -22,7 +22,7 @@ const faqs = [
   {
     question: "¿Qué pasa si pierdo mi tarjeta?",
     answer:
-      "No te preocupes. Escríbenos a recobratutiempo@gmail.com para iniciar el proceso de reposición de tu tarjeta y en caso de que hayas perdido la tarjeta durante una sesión activa, para ayudarte a desbloquear la sesión de enfoque.",
+      "No te preocupes. Escríbenos a recobratutiempo@gmail.com para iniciar el proceso de reposición de tu tarjeta y ayudarte a desbloquear una sesión activa de enfoque.",
   },
   {
     question: "¿Cuánto dura una sesión de bloqueo?",
@@ -63,18 +63,16 @@ export function FAQ() {
     <section id="faq" className="py-10 md:py-14 relative" ref={sectionRef}>
       <div className="max-w-3xl mx-auto px-6">
         <div
-          className={`text-center mb-10 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Preguntas frecuentes</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Todo lo que necesitas saber sobre Recobra</p>
         </div>
 
         <div
-          className={`transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (

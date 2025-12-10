@@ -468,7 +468,7 @@ function HeroSection() {
                                                 size: "lg",
                                                 className: "bg-[#0bb37a] hover:bg-[#0dd98b] text-black font-bold rounded-full px-8 py-7 text-lg shadow-lg shadow-[#0bb37a]/30 hover:shadow-[#0bb37a]/40 transition-all hover:scale-105 group",
                                                 children: [
-                                                    "Reservar tarjeta",
+                                                    "Reserva tu tarjeta",
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                                         className: "ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"
                                                     }, void 0, false, {
@@ -761,7 +761,7 @@ const steps = [
     },
     {
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sparkles$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Sparkles$3e$__["Sparkles"],
-        title: "Recupera tu tiempo",
+        title: "Recobra tu tiempo",
         description: "Para lo que realmente importa. Más productividad, más bienestar, más vida real."
     }
 ];
@@ -845,12 +845,12 @@ function HowItWorks() {
                                         className: "w-8 h-8 text-[#0bb37a]"
                                     }, void 0, false, {
                                         fileName: "[project]/components/how-it-works.tsx",
-                                        lineNumber: 79,
+                                        lineNumber: 78,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/how-it-works.tsx",
-                                    lineNumber: 78,
+                                    lineNumber: 77,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -861,7 +861,7 @@ function HowItWorks() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/how-it-works.tsx",
-                                    lineNumber: 81,
+                                    lineNumber: 80,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -869,7 +869,7 @@ function HowItWorks() {
                                     children: step.title
                                 }, void 0, false, {
                                     fileName: "[project]/components/how-it-works.tsx",
-                                    lineNumber: 82,
+                                    lineNumber: 81,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -877,7 +877,7 @@ function HowItWorks() {
                                     children: step.description
                                 }, void 0, false, {
                                     fileName: "[project]/components/how-it-works.tsx",
-                                    lineNumber: 83,
+                                    lineNumber: 82,
                                     columnNumber: 15
                                 }, this)
                             ]
@@ -927,7 +927,7 @@ const features = [
         willpower: false
     },
     {
-        name: "Activación instantánea NFC",
+        name: "Activación instantánea",
         recobra: true,
         apps: false,
         willpower: false
@@ -935,7 +935,7 @@ const features = [
     {
         name: "Elige qué apps bloquear",
         recobra: true,
-        apps: true,
+        apps: false,
         willpower: false
     },
     {
@@ -1738,7 +1738,7 @@ const faqs = [
     },
     {
         question: "¿Qué pasa si pierdo mi tarjeta?",
-        answer: "No te preocupes. Escríbenos a recobratutiempo@gmail.com para iniciar el proceso de reposición de tu tarjeta y en caso de que hayas perdido la tarjeta durante una sesión activa, para ayudarte a desbloquear la sesión de enfoque."
+        answer: "No te preocupes. Escríbenos a recobratutiempo@gmail.com para iniciar el proceso de reposición de tu tarjeta y ayudarte a desbloquear una sesión activa de enfoque."
     },
     {
         question: "¿Cuánto dura una sesión de bloqueo?",
@@ -1782,7 +1782,7 @@ function FAQ() {
                             children: "Preguntas frecuentes"
                         }, void 0, false, {
                             fileName: "[project]/components/faq.tsx",
-                            lineNumber: 70,
+                            lineNumber: 69,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1790,7 +1790,7 @@ function FAQ() {
                             children: "Todo lo que necesitas saber sobre Recobra"
                         }, void 0, false, {
                             fileName: "[project]/components/faq.tsx",
-                            lineNumber: 71,
+                            lineNumber: 70,
                             columnNumber: 11
                         }, this)
                     ]
@@ -1814,7 +1814,7 @@ function FAQ() {
                                         children: faq.question
                                     }, void 0, false, {
                                         fileName: "[project]/components/faq.tsx",
-                                        lineNumber: 86,
+                                        lineNumber: 84,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$accordion$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AccordionContent"], {
@@ -1822,23 +1822,23 @@ function FAQ() {
                                         children: faq.answer
                                     }, void 0, false, {
                                         fileName: "[project]/components/faq.tsx",
-                                        lineNumber: 89,
+                                        lineNumber: 87,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, index, true, {
                                 fileName: "[project]/components/faq.tsx",
-                                lineNumber: 81,
+                                lineNumber: 79,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/components/faq.tsx",
-                        lineNumber: 79,
+                        lineNumber: 77,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/faq.tsx",
-                    lineNumber: 74,
+                    lineNumber: 73,
                     columnNumber: 9
                 }, this)
             ]
@@ -1907,13 +1907,13 @@ function FinalCta() {
                                 children: "hoy"
                             }, void 0, false, {
                                 fileName: "[project]/components/final-cta.tsx",
-                                lineNumber: 40,
+                                lineNumber: 39,
                                 columnNumber: 31
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/final-cta.tsx",
-                        lineNumber: 39,
+                        lineNumber: 38,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1921,7 +1921,7 @@ function FinalCta() {
                         children: "Tu tiempo es lo más importante. Reserva tu tarjeta hoy y recobra el control de tu vida digital"
                     }, void 0, false, {
                         fileName: "[project]/components/final-cta.tsx",
-                        lineNumber: 42,
+                        lineNumber: 41,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$waitlist$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["WaitlistModal"], {
@@ -1929,23 +1929,23 @@ function FinalCta() {
                             size: "lg",
                             className: "bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-10 py-7 text-lg font-semibold shadow-lg shadow-[#0bb37a]/20 group",
                             children: [
-                                "Reservar tarjeta",
+                                "Reserva tu tarjeta",
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                     className: "ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"
                                 }, void 0, false, {
                                     fileName: "[project]/components/final-cta.tsx",
-                                    lineNumber: 52,
+                                    lineNumber: 51,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/final-cta.tsx",
-                            lineNumber: 47,
+                            lineNumber: 46,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/final-cta.tsx",
-                        lineNumber: 46,
+                        lineNumber: 45,
                         columnNumber: 11
                     }, this)
                 ]
@@ -2089,7 +2089,7 @@ function Navbar() {
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$waitlist$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["WaitlistModal"], {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                         className: "bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-6",
-                                        children: "Reservar tarjeta"
+                                        children: "Reserva tu tarjeta"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navbar.tsx",
                                         lineNumber: 65,
@@ -2201,7 +2201,7 @@ function Navbar() {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                 className: "bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2",
                                 onClick: ()=>setIsOpen(false),
-                                children: "Reservar tarjeta"
+                                children: "Reserva tu tarjeta"
                             }, void 0, false, {
                                 fileName: "[project]/components/navbar.tsx",
                                 lineNumber: 123,

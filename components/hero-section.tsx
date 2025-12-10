@@ -40,7 +40,7 @@ export function HeroSection() {
                   size="lg"
                   className="bg-[#0bb37a] hover:bg-[#0dd98b] text-black font-bold rounded-full px-8 py-7 text-lg shadow-lg shadow-[#0bb37a]/30 hover:shadow-[#0bb37a]/40 transition-all hover:scale-105 group"
                 >
-                  Reservar tarjeta
+                  Reserva tu tarjeta
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </WaitlistModal>

@@ -16,7 +16,7 @@ const steps = [
   },
   {
     icon: Sparkles,
-    title: "Recupera tu tiempo",
+    title: "Recobra tu tiempo",
     description: "Para lo que realmente importa. Más productividad, más bienestar, más vida real.",
   },
 ]
@@ -70,9 +70,8 @@ export function HowItWorks() {
               ref={(el) => {
                 stepsRef.current[index] = el
               }}
-              className={`flex flex-col items-center text-center p-8 rounded-2xl bg-gradient-to-b from-[#0a0a0a] to-transparent border border-[#1a1a1a] transition-all duration-700 ${
-                visibleSteps[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+              className={`flex flex-col items-center text-center p-8 rounded-2xl bg-gradient-to-b from-[#0a0a0a] to-transparent border border-[#1a1a1a] transition-all duration-700 ${visibleSteps[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="w-16 h-16 rounded-2xl bg-[#0bb37a]/10 flex items-center justify-center mb-6">

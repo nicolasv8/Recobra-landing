@@ -11,7 +11,7 @@ const features = [
     willpower: false,
   },
   {
-    name: "Activación instantánea NFC",
+    name: "Activación instantánea",
     recobra: true,
     apps: false,
     willpower: false,
@@ -19,7 +19,7 @@ const features = [
   {
     name: "Elige qué apps bloquear",
     recobra: true,
-    apps: true,
+    apps: false,
     willpower: false,
   },
   {

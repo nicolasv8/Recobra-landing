@@ -63,7 +63,7 @@ export function Navbar() {
             </a>
             <WaitlistModal>
               <Button className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-6">
-                Reservar tarjeta
+                Reserva tu tarjeta
               </Button>
             </WaitlistModal>
           </div>
@@ -124,7 +124,7 @@ export function Navbar() {
                 className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2"
                 onClick={() => setIsOpen(false)}
               >
-                Reservar tarjeta
+                Reserva tu tarjeta
               </Button>
             </WaitlistModal>
           </div>

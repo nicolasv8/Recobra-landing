@@ -7,8 +7,9 @@ import "./globals.css"
 const nunito = Nunito({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://recobratutiempo.com"),
   title: "Recobra tu Tiempo - Bloquea Distracciones",
-  description: "Una tarjeta NFC + app que te ayuda a recuperar el control limitando el uso adictivo del celular.",
+  description: "La solución física para las distracciones digitales.",
   generator: "v0.app",
   // icons: {
   //   icon: "/icon-32x32.png",
