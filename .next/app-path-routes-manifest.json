@@ -1,0 +1,10 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/apple-icon.png/route": "/apple-icon.png",
+  "/gracias/page": "/gracias",
+  "/icon.png/route": "/icon.png",
+  "/icon/route": "/icon",
+  "/page": "/",
+  "/privacidad/page": "/privacidad"
+}
