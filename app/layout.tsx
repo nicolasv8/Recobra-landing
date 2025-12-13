@@ -11,10 +11,9 @@ export const metadata: Metadata = {
   title: "Recobra tu Tiempo - Bloquea Distracciones",
   description: "La solución física para las distracciones digitales.",
   generator: "v0.app",
-  // icons: {
-  //   icon: "/icon-32x32.png",
-  //   apple: "/apple-icon.png",
-  // },
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     images: [
       {
