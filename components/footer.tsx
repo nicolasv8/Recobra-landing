@@ -1,4 +1,5 @@
 import { Instagram } from "lucide-react"
+import Link from "next/link"
 
 export function Footer() {
   return (
@@ -15,9 +16,9 @@ export function Footer() {
             <a href="/privacidad" className="text-muted-foreground hover:text-white transition-colors">
               Privacidad
             </a>
-            <a href="mailto:recobratutiempo@gmail.com" className="text-muted-foreground hover:text-white transition-colors">
+            <Link href="/contacto" className="text-muted-foreground hover:text-white transition-colors">
               Contacto
-            </a>
+            </Link>
           </div>
 
           {/* Socials */}

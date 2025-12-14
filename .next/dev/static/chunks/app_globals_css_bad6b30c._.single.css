@@ -800,6 +800,10 @@
     height: calc(var(--spacing) * 16);
   }
 
+  .h-\[80vh\] {
+    height: 80vh;
+  }
+
   .h-\[215px\] {
     height: 215px;
   }
@@ -1687,6 +1691,10 @@
     padding-top: calc(var(--spacing) * 20);
   }
 
+  .pt-24 {
+    padding-top: calc(var(--spacing) * 24);
+  }
+
   .pt-32 {
     padding-top: calc(var(--spacing) * 32);
   }
@@ -1697,6 +1705,10 @@
 
   .pb-6 {
     padding-bottom: calc(var(--spacing) * 6);
+  }
+
+  .pb-10 {
+    padding-bottom: calc(var(--spacing) * 10);
   }
 
   .pb-12 {
@@ -2504,6 +2516,12 @@
   @media (min-width: 48rem) {
     .md\:hidden {
       display: none;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .md\:h-\[90vh\] {
+      height: 90vh;
     }
   }
 

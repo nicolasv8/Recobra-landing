@@ -1,7 +1,5 @@
-[00:00:00.976] Server  LOG      ✓ Ready in 659ms
-[00:00:05.687] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:05.687] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:05.687] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765659070984}
-[00:00:10.248] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:10.248] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/gracias","route":"/gracias"}
-[00:00:10.248] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/gracias color: rgb(120, 120, 120) color: inherit {"dp":"/gracias","o":"http://localhost:3000/gracias","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765659075546}
+[00:00:00.902] Server  LOG      ✓ Ready in 552ms
+[00:00:04.421] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/contacto. Falling back to browser navigation. {}
+[00:00:07.015] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:07.015] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/contacto","route":"/contacto"}
+[00:00:07.015] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/contacto color: rgb(120, 120, 120) color: inherit {"dp":"/contacto","o":"http://localhost:3000/contacto","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1765737299412}

@@ -6,6 +6,8 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { WaitlistModal } from "@/components/waitlist-modal"
 
+import Link from "next/link"
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
@@ -61,6 +63,12 @@ export function Navbar() {
             >
               Preguntas frecuentes
             </a>
+            <Link
+              href="/contacto"
+              className="text-muted-foreground hover:text-white transition-colors"
+            >
+              Contacto
+            </Link>
             <WaitlistModal>
               <Button className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-6">
                 Reserva tu tarjeta
@@ -119,6 +127,13 @@ export function Navbar() {
             >
               Preguntas frecuentes
             </a>
+            <Link
+              href="/contacto"
+              className="text-muted-foreground hover:text-white transition-colors py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Contacto
+            </Link>
             <WaitlistModal>
               <Button
                 className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2"
