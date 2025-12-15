@@ -4,7 +4,7 @@ import { AsofamiliaForm } from "@/components/asofamilia-form"
 
 export const metadata = {
     title: "Acceso Anticipado ASOFAMLIA",
-    description: "Acceso anticipado para miembros de ASOFAMLIA.",
+    description: "Llena este formulario para tener acceso anticipado a Recobra, la herramienta de ayuda parental para que tus hijos tengan un uso más consciente del celular.",
 }
 
 export default function AsofamiliaPage() {
