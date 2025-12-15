@@ -89,9 +89,8 @@ export function Benefits() {
               ref={(el) => {
                 cardsRef.current[index] = el
               }}
-              className={`p-6 rounded-2xl bg-[#0a0a0a] border border-[#1a1a1a] hover:border-[#0bb37a]/30 transition-all duration-500 group ${
-                visibleCards[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
+              className={`p-6 rounded-2xl bg-[#0a0a0a] border border-[#1a1a1a] hover:border-[#0bb37a]/30 transition-all duration-500 group ${visibleCards[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                }`}
               style={{ transitionDelay: `${index * 80}ms` }}
             >
               <div className="w-12 h-12 rounded-xl bg-[#0bb37a]/10 flex items-center justify-center mb-4 group-hover:bg-[#0bb37a]/20 transition-colors">
