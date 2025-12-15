@@ -35,7 +35,7 @@ export function AsofamiliaForm() {
                 </h1>
 
                 <p className="text-xl text-muted-foreground w-full max-w-2xl leading-relaxed">
-                    Te contactaremos en cuanto Recobra esté disponible. Estimamos hacer las primeras entregas en 1-2 semanas.
+                    Te contactaremos en cuanto Recobra esté disponible. Estimamos hacer las primeras entregas en ~2 semanas.
                 </p>
 
                 <Link href="/" passHref>
