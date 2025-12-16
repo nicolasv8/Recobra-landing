@@ -99,9 +99,11 @@
 @layer theme {
   :root, :host {
     --color-red-500: #fb2c36;
+    --color-gray-400: #99a1af;
     --color-black: #000;
     --color-white: #fff;
     --spacing: .25rem;
+    --container-lg: 32rem;
     --container-xl: 36rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
@@ -151,6 +153,7 @@
   @supports (color: lab(0% 0 0)) {
     :root, :host {
       --color-red-500: lab(55.4814% 75.0732 48.8528);
+      --color-gray-400: lab(65.9269% -.832707 -8.17473);
     }
   }
 }
@@ -929,6 +932,10 @@
     max-width: 520px;
   }
 
+  .max-w-lg {
+    max-width: var(--container-lg);
+  }
+
   .max-w-xl {
     max-width: var(--container-xl);
   }
@@ -1386,6 +1393,10 @@
     .border-white\/20 {
       border-color: color-mix(in oklab, var(--color-white) 20%, transparent);
     }
+  }
+
+  .bg-\[\#0BB37A\] {
+    background-color: #0bb37a;
   }
 
   .bg-\[\#0BB37A\]\/10 {
@@ -1853,6 +1864,10 @@
     color: var(--color-black);
   }
 
+  .text-gray-400 {
+    color: var(--color-gray-400);
+  }
+
   .text-muted-foreground {
     color: var(--muted-foreground);
   }
@@ -1998,6 +2013,11 @@
 
   .shadow-2xl {
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, #00000040);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+
+  .shadow-\[0_0_20px_rgba\(11\,179\,122\,0\.3\)\] {
+    --tw-shadow: 0 0 20px var(--tw-shadow-color, #0bb37a4d);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 
@@ -2305,6 +2325,12 @@
   }
 
   @media (hover: hover) {
+    .hover\:bg-\[\#0aa16d\]:hover {
+      background-color: #0aa16d;
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-\[\#0bb37a\]\/90:hover {
       background-color: #0bb37ae6;
       background-color: lab(64.6202% -50.0976 17.9848 / .9);
@@ -2404,6 +2430,13 @@
   @media (hover: hover) {
     .hover\:opacity-100:hover {
       opacity: 1;
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:shadow-\[0_0_30px_rgba\(11\,179\,122\,0\.5\)\]:hover {
+      --tw-shadow: 0 0 30px var(--tw-shadow-color, #0bb37a80);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
 
