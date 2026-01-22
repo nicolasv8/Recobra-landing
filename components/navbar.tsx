@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { WaitlistModal } from "@/components/waitlist-modal"
+
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,13 +14,13 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-2">
             <img src="recobra-logo.png" alt="Recobra" className="w-9 h-9" />
-            <span className="text-2xl font-bold text-white">Recobra</span>
+            <span className="text-2xl font-bold text-white"><span className="text-[#0bb37a]">Re</span>cobra</span>
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a 
-              href="#como-funciona" 
+            <a
+              href="#como-funciona"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
                 e.preventDefault();
@@ -30,8 +30,8 @@ export function Navbar() {
             >
               Cómo funciona
             </a>
-            <a 
-              href="#beneficios" 
+            <a
+              href="#beneficios"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
                 e.preventDefault();
@@ -41,8 +41,8 @@ export function Navbar() {
             >
               Beneficios
             </a>
-            <a 
-              href="#faq" 
+            <a
+              href="#faq"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
                 e.preventDefault();
@@ -52,11 +52,9 @@ export function Navbar() {
             >
               Preguntas frecuentes
             </a>
-            <WaitlistModal>
-              <Button className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-6">
-                Reservar tarjeta
-              </Button>
-            </WaitlistModal>
+            <Button asChild className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-6">
+              <a href="https://checkout.wompi.co/l/V5u4U0">Compra ahora</a>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -104,14 +102,13 @@ export function Navbar() {
             >
               Preguntas frecuentes
             </a>
-            <WaitlistModal>
-              <Button 
-                className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Reservar tarjeta
-              </Button>
-            </WaitlistModal>
+            <Button
+              asChild
+              className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <a href="https://checkout.wompi.co/l/V5u4U0">Compra ahora</a>
+            </Button>
           </div>
         )}
       </div>
