@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Smartphone, CreditCard, Sparkles } from "lucide-react"
+import { Smartphone, CreditCard, Sparkles, Focus } from "lucide-react"
 
 const steps = [
   {
@@ -10,14 +10,14 @@ const steps = [
     description: "Abre la app de Recobra y selecciona las aplicaciones que deseas bloquear.",
   },
   {
-    icon: CreditCard,
-    title: "Toca la tarjeta",
-    description: "Acerca la tarjeta Recobra a tu celular para iniciar una sesión de enfoque.",
+    icon: Focus,
+    title: "Inicia una sesión de enfoque",
+    description: "A través de un horario pre-programado o de forma manual.",
   },
   {
     icon: Sparkles,
-    title: "Recupera tu tiempo",
-    description: "Para lo que realmente importa. Más productividad, más bienestar, más vida real.",
+    title: "Recobra tu tiempo",
+    description: "Para lo que realmente importa, por fuera de las pantallas.",
   },
 ]
 
@@ -70,9 +70,8 @@ export function HowItWorks() {
               ref={(el) => {
                 stepsRef.current[index] = el
               }}
-              className={`flex flex-col items-center text-center p-8 rounded-2xl bg-gradient-to-b from-[#0a0a0a] to-transparent border border-[#1a1a1a] transition-all duration-700 ${
-                visibleSteps[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+              className={`flex flex-col items-center text-center p-8 rounded-2xl bg-gradient-to-b from-[#0a0a0a] to-transparent border border-[#1a1a1a] transition-all duration-700 ${visibleSteps[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="w-16 h-16 rounded-2xl bg-[#0bb37a]/10 flex items-center justify-center mb-6">
