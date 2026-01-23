@@ -8,7 +8,7 @@ const steps = [
   {
     icon: Smartphone,
     title: "Elige las apps a bloquear",
-    description: "Selecciona Instagram, TikTok (o las apps que quieras).",
+    description: "Selecciona Instagram, TikTok y todas las apps que te distraigan.",
   },
   {
     icon: Zap,
@@ -17,8 +17,8 @@ const steps = [
   },
   {
     icon: Lock,
-    title: "Apps bloqueadas",
-    description: "Mientras la sesión está activa, quedan bloqueadas.",
+    title: "Recobra tu tiempo",
+    description: "Tus distracciones están bloqueadas para que inviertas tu tiempo en lo más importante.",
   },
   {
     icon: CreditCard,
@@ -101,9 +101,9 @@ export function HowItWorks() {
               <CreditCard className="w-7 h-7 text-[#0bb37a]" />
             </div>
             <div className="text-[#0bb37a] text-xs font-bold uppercase tracking-wider mb-3">Paso 4</div>
-            <h3 className="text-xl font-bold text-white mb-3">Para terminar, toca tu tarjeta</h3>
+            <h3 className="text-xl font-bold text-white mb-3">Para desbloquear, usa la tarjeta Recobra</h3>
             <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-              Para desbloquear y terminar la sesión, necesitas tu tarjeta Recobra.
+              Para terminar una sesisón de enfoque, necesitas tu tarjeta Recobra.
             </p>
           </div>
 
