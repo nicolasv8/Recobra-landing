@@ -29,7 +29,7 @@ export function FinalCta() {
   }, [])
 
   return (
-    <section className="py-10 md:py-16 relative" ref={sectionRef}>
+    <section className="py-8 md:py-12 relative" ref={sectionRef}>
       <div className="max-w-4xl mx-auto px-6 text-center">
         <div
           className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"

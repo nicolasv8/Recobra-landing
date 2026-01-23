@@ -199,7 +199,7 @@ export function WhyRecobra() {
                             </div>
 
                             {/* Dynamic Bullets - Pulled closer to phone */}
-                            <div className="w-full min-h-[40px] -mt-3">
+                            <div className="w-full min-h-[40px] mt-2">
                                 {mode === 'con' ? (
                                     <div className="space-y-1 animate-in fade-in slide-in-from-left-4 duration-300">
                                         <div className="flex items-start gap-2">
