@@ -131,8 +131,8 @@ export function WhyRecobra() {
                                     aria-selected={mode === 'con'}
                                     onClick={() => handleToggle('con')}
                                     className={`flex-1 py-1 text-xs font-bold rounded-full transition-all duration-300 ${mode === 'con'
-                                            ? "bg-[#0bb37a] text-black shadow-lg shadow-[#0bb37a]/20"
-                                            : "text-muted-foreground hover:text-white"
+                                        ? "bg-[#0bb37a] text-black shadow-lg shadow-[#0bb37a]/20"
+                                        : "text-muted-foreground hover:text-white"
                                         }`}
                                 >
                                     Con Recobra
@@ -142,8 +142,8 @@ export function WhyRecobra() {
                                     aria-selected={mode === 'sin'}
                                     onClick={() => handleToggle('sin')}
                                     className={`flex-1 py-1 text-xs font-bold rounded-full transition-all duration-300 ${mode === 'sin'
-                                            ? "bg-white text-black shadow-lg"
-                                            : "text-muted-foreground hover:text-white"
+                                        ? "bg-white text-black shadow-lg"
+                                        : "text-muted-foreground hover:text-white"
                                         }`}
                                 >
                                     Sin Recobra
