@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Star, Briefcase, GraduationCap, UserRound, ChevronLeft, ChevronRight } from "lucide-react"
+import { Star, Briefcase, GraduationCap, UserRound, ChevronLeft, ChevronRight, Database } from "lucide-react"
 
 const testimonials = [
   {
@@ -12,11 +12,11 @@ const testimonials = [
     icon: GraduationCap,
   },
   {
-    name: "Nicolás Velasco",
-    role: "Emprendedor",
+    name: "Esteban Trujillo",
+    role: "Analista de datos",
     content:
-      "Me encanta la opción de poder programar bloqueos. Me ayuda a mantenerme enfocado durante las horas más intensas de trabajo.",
-    icon: Briefcase,
+      "Ayuda muchísimo. El ver la aplicación bloqueada así yo tenga la tarjeta al lado ya es motivo suficiente para volver a poner el celular en la mesa y seguir enfocado en lo que uno estaba.",
+    icon: Database,
   },
   {
     name: "Mónica Corrales",
