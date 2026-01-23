@@ -62,12 +62,12 @@ export function WhyRecobra() {
     }
 
     return (
-        <section className="py-8 md:py-32 relative overflow-hidden">
+        <section className="py-6 md:py-32 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Header - Compact on mobile */}
-                <div className="text-center mb-6 md:mb-24">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 md:mb-4">¿Por qué Recobra?</h2>
+                <div className="text-center mb-4 md:mb-24">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-1.5 md:mb-4">¿Por qué Recobra?</h2>
                     <p className="text-muted-foreground text-sm md:text-xl max-w-2xl mx-auto leading-tight md:leading-normal">
                         Porque tus distracciones no deberían poder saltarse con un click.
                     </p>
@@ -108,17 +108,24 @@ export function WhyRecobra() {
                     {/* Right Column: Comparison Mockups */}
                     <div className="order-1 lg:order-2 flex flex-col items-center">
 
-                        {/* --- MOBILE VIEW (< lg) --- */}
-                        <div className="flex flex-col items-center gap-1.5 w-full max-w-sm lg:hidden">
+                        {/* 
+                            MOBILE VIEW OPTIMIZATION (< lg):
+                            - Removed outer gap-1.5, using explicit spacing per element
+                            - Hint: no extra mb, sits directly above toggle
+                            - Toggle: mb-2 creates tight connection to phone
+                            - Phone: h-[50vh] max-h-[440px] for controlled, larger presence
+                            - Bullets: -mt-3 pulls them closer to phone (attached feel)
+                        */}
+                        <div className="flex flex-col items-center w-full max-w-sm lg:hidden">
 
                             {/* Comparison Hint - Always visible */}
-                            <div className="text-[#0bb37a] text-[10px] font-medium tracking-wide flex items-center gap-1 animate-pulse mb-1">
+                            <div className="text-[#0bb37a] text-[10px] font-medium tracking-wide flex items-center gap-1 animate-pulse">
                                 <span>Desliza para comparar</span>
                                 <ArrowRight className="w-2.5 h-2.5" />
                             </div>
 
                             {/* Toggle Control */}
-                            <div className="flex p-0.5 bg-white/5 rounded-full border border-white/10 w-full max-w-[260px]" role="tablist">
+                            <div className="flex p-0.5 bg-white/5 rounded-full border border-white/10 w-full max-w-[260px] mb-2" role="tablist">
                                 <button
                                     role="tab"
                                     aria-selected={mode === 'con'}
@@ -143,9 +150,9 @@ export function WhyRecobra() {
                                 </button>
                             </div>
 
-                            {/* Single Mockup Viewport (Swipeable) */}
+                            {/* Single Mockup Viewport (Swipeable) - Fixed height for better control */}
                             <div
-                                className="relative w-full aspect-[9/17] scale-[0.95] flex items-center justify-center touch-pan-y"
+                                className="relative w-full h-[50vh] max-h-[440px] flex items-center justify-center touch-pan-y"
                                 onTouchStart={onTouchStart}
                                 onTouchMove={onTouchMove}
                                 onTouchEnd={onTouchEnd}
@@ -191,8 +198,8 @@ export function WhyRecobra() {
                                 )}
                             </div>
 
-                            {/* Dynamic Bullets */}
-                            <div className="w-full min-h-[44px] -mt-2">
+                            {/* Dynamic Bullets - Pulled closer to phone */}
+                            <div className="w-full min-h-[40px] -mt-3">
                                 {mode === 'con' ? (
                                     <div className="space-y-1 animate-in fade-in slide-in-from-left-4 duration-300">
                                         <div className="flex items-start gap-2">
