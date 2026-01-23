@@ -2,19 +2,73 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 
 export function WhyRecobra() {
     const [mode, setMode] = useState<'con' | 'sin'>('con')
+    const [hasInteracted, setHasInteracted] = useState(false)
+    const [touchStart, setTouchStart] = useState<number | null>(null)
+    const [touchEnd, setTouchEnd] = useState<number | null>(null)
+    const [dragOffset, setDragOffset] = useState(0)
+
+    // Touch handlers for swipe interaction
+    const minSwipeDistance = 50
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null)
+        setTouchStart(e.targetTouches[0].clientX)
+    }
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX)
+        if (touchStart !== null) {
+            const currentTouch = e.targetTouches[0].clientX
+            // Calculate drag offset for visual feedback (limited to +/- 30px)
+            const diff = currentTouch - touchStart
+            // Damping the drag
+            setDragOffset(Math.max(Math.min(diff * 0.4, 30), -30))
+        }
+    }
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) {
+            // Reset if simply a tap or no movement
+            setDragOffset(0)
+            return
+        }
+
+        const distance = touchStart - touchEnd
+        const isLeftSwipe = distance > minSwipeDistance
+        const isRightSwipe = distance < -minSwipeDistance
+
+        if (isLeftSwipe && mode === 'con') {
+            setMode('sin')
+            setHasInteracted(true)
+        }
+        if (isRightSwipe && mode === 'sin') {
+            setMode('con')
+            setHasInteracted(true)
+        }
+
+        // Reset state
+        setTouchStart(null)
+        setTouchEnd(null)
+        setDragOffset(0)
+    }
+
+    const handleToggle = (newMode: 'con' | 'sin') => {
+        setMode(newMode)
+        setHasInteracted(true)
+    }
 
     return (
-        <section className="py-20 md:py-32 relative overflow-hidden">
+        <section className="py-12 md:py-32 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
 
-                {/* Header */}
-                <div className="text-center mb-16 md:mb-24">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">¿Por qué Recobra?</h2>
-                    <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+                {/* Header - Compact on mobile */}
+                <div className="text-center mb-8 md:mb-24">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 md:mb-4">¿Por qué Recobra?</h2>
+                    <p className="text-muted-foreground text-base md:text-xl max-w-2xl mx-auto leading-tight md:leading-normal">
                         Porque tus distracciones no deberían poder saltarse con un click.
                     </p>
                 </div>
@@ -22,10 +76,9 @@ export function WhyRecobra() {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
                     {/* Left Column: Copy & Context (Common) */}
-                    <div className="flex flex-col gap-8 order-2 lg:order-1 text-center lg:text-left">
+                    <div className="flex flex-col gap-6 md:gap-8 order-2 lg:order-1 text-center lg:text-left">
                         <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                            Dile adiós al <span className="text-[#0bb37a]">'solo un minuto más'</span> <br />
-                            scroll eterno
+                            Dile adiós al <span className="text-[#0bb37a]">'solo un minuto más'</span> <br /> y al scroll eterno
                         </h3>
 
                         <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
@@ -56,17 +109,23 @@ export function WhyRecobra() {
                     <div className="order-1 lg:order-2 flex flex-col items-center">
 
                         {/* --- MOBILE VIEW (< lg) --- */}
-                        <div className="flex flex-col items-center gap-8 w-full max-w-sm lg:hidden">
+                        <div className="flex flex-col items-center gap-6 w-full max-w-sm lg:hidden">
+
+                            {/* Comparison Hint - Disappears after interaction */}
+                            <div className={`text-[#0bb37a] text-xs font-medium tracking-wide flex items-center gap-1 transition-opacity duration-500 ${hasInteracted ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'}`}>
+                                <span>Desliza para comparar</span>
+                                <ArrowRight className="w-3 h-3 animate-pulse" />
+                            </div>
 
                             {/* Toggle Control */}
-                            <div className="flex p-1 bg-white/5 rounded-full border border-white/10 w-full max-w-[300px]" role="tablist">
+                            <div className="flex p-1 bg-white/5 rounded-full border border-white/10 w-full max-w-[280px]" role="tablist">
                                 <button
                                     role="tab"
                                     aria-selected={mode === 'con'}
-                                    onClick={() => setMode('con')}
+                                    onClick={() => handleToggle('con')}
                                     className={`flex-1 py-2 text-sm font-bold rounded-full transition-all duration-300 ${mode === 'con'
-                                            ? "bg-[#0bb37a] text-black shadow-lg shadow-[#0bb37a]/20"
-                                            : "text-muted-foreground hover:text-white"
+                                        ? "bg-[#0bb37a] text-black shadow-lg shadow-[#0bb37a]/20"
+                                        : "text-muted-foreground hover:text-white"
                                         }`}
                                 >
                                     Con Recobra
@@ -74,57 +133,86 @@ export function WhyRecobra() {
                                 <button
                                     role="tab"
                                     aria-selected={mode === 'sin'}
-                                    onClick={() => setMode('sin')}
+                                    onClick={() => handleToggle('sin')}
                                     className={`flex-1 py-2 text-sm font-bold rounded-full transition-all duration-300 ${mode === 'sin'
-                                            ? "bg-white text-black shadow-lg"
-                                            : "text-muted-foreground hover:text-white"
+                                        ? "bg-white text-black shadow-lg"
+                                        : "text-muted-foreground hover:text-white"
                                         }`}
                                 >
                                     Sin Recobra
                                 </button>
                             </div>
 
-                            {/* Single Mockup Viewport */}
-                            <div className="relative w-full aspect-[9/19] flex items-center justify-center">
-                                {/* Con Recobra Image */}
-                                <img
-                                    src="/mockup-con-recobra.png"
-                                    alt="iPhone con Recobra"
-                                    className={`absolute inset-0 w-full h-full object-contain drop-shadow-2xl transition-all duration-500 transform ${mode === 'con' ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-95 -translate-x-8 pointer-events-none"
-                                        }`}
-                                />
+                            {/* Single Mockup Viewport (Swipeable) */}
+                            <div
+                                className="relative w-full aspect-[9/18] flex items-center justify-center touch-pan-y"
+                                onTouchStart={onTouchStart}
+                                onTouchMove={onTouchMove}
+                                onTouchEnd={onTouchEnd}
+                            >
+                                {/* Swipe container with drag feedback */}
+                                <div
+                                    className="relative w-full h-full transition-transform duration-75 ease-out"
+                                    style={{ transform: `translateX(${dragOffset}px)` }}
+                                >
+                                    {/* Con Recobra Image */}
+                                    <img
+                                        src="/mockup-con-recobra.png"
+                                        alt="iPhone con Recobra"
+                                        draggable="false"
+                                        className={`absolute inset-0 w-full h-full object-contain drop-shadow-2xl transition-all duration-500 transform ${mode === 'con' ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-95 -translate-x-8 pointer-events-none"
+                                            }`}
+                                    />
 
-                                {/* Sin Recobra Image */}
-                                <img
-                                    src="/mockup-sin-recobra.png"
-                                    alt="iPhone sin Recobra"
-                                    className={`absolute inset-0 w-full h-full object-contain drop-shadow-2xl transition-all duration-500 transform ${mode === 'sin' ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-95 translate-x-8 pointer-events-none"
-                                        }`}
-                                />
+                                    {/* Sin Recobra Image */}
+                                    <img
+                                        src="/mockup-sin-recobra.png"
+                                        alt="iPhone sin Recobra"
+                                        draggable="false"
+                                        className={`absolute inset-0 w-full h-full object-contain drop-shadow-2xl transition-all duration-500 transform ${mode === 'sin' ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-95 translate-x-8 pointer-events-none"
+                                            }`}
+                                    />
+                                </div>
+
+                                {/* Micro-affordance chevrons (Optional premium detail) */}
+                                {!hasInteracted && (
+                                    <>
+                                        {mode === 'sin' && (
+                                            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 text-white/10 animate-pulse">
+                                                <ChevronLeft className="w-8 h-8" />
+                                            </div>
+                                        )}
+                                        {mode === 'con' && (
+                                            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 text-white/10 animate-pulse">
+                                                <ChevronRight className="w-8 h-8" />
+                                            </div>
+                                        )}
+                                    </>
+                                )}
                             </div>
 
                             {/* Dynamic Bullets */}
-                            <div className="space-y-3 min-h-[80px]">
+                            <div className="w-full min-h-[60px]">
                                 {mode === 'con' ? (
-                                    <div className="space-y-2 animate-in fade-in slide-in-from-left-4 duration-300">
-                                        <div className="flex items-start gap-3">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-[#0bb37a] mt-2 flex-shrink-0" />
-                                            <p className="text-white text-sm font-medium">El desbloqueo está protegido por la tarjeta física.</p>
+                                    <div className="space-y-1.5 animate-in fade-in slide-in-from-left-4 duration-300">
+                                        <div className="flex items-start gap-2.5">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-[#0bb37a] mt-1.5 flex-shrink-0" />
+                                            <p className="text-white text-sm font-medium leading-tight">El desbloqueo está protegido por la tarjeta física.</p>
                                         </div>
-                                        <div className="flex items-start gap-3">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-[#0bb37a] mt-2 flex-shrink-0" />
-                                            <p className="text-white text-sm font-medium">Desbloquea con intención, no por impulso.</p>
+                                        <div className="flex items-start gap-2.5">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-[#0bb37a] mt-1.5 flex-shrink-0" />
+                                            <p className="text-white text-sm font-medium leading-tight">Desbloquea con intención, no por impulso.</p>
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="space-y-2 animate-in fade-in slide-in-from-right-4 duration-300">
-                                        <div className="flex items-start gap-3">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
-                                            <p className="text-white text-sm font-medium">El 'escape' está a un toque: 'solo un minuto más'.</p>
+                                    <div className="space-y-1.5 animate-in fade-in slide-in-from-right-4 duration-300">
+                                        <div className="flex items-start gap-2.5">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 flex-shrink-0" />
+                                            <p className="text-white text-sm font-medium leading-tight">El 'escape' está a un toque: 'solo un minuto más'.</p>
                                         </div>
-                                        <div className="flex items-start gap-3">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
-                                            <p className="text-white text-sm font-medium">Perfecto para recaer por impulso.</p>
+                                        <div className="flex items-start gap-2.5">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 flex-shrink-0" />
+                                            <p className="text-white text-sm font-medium leading-tight">Perfecto para recaer por impulso.</p>
                                         </div>
                                     </div>
                                 )}
