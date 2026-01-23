@@ -7,20 +7,15 @@ import { ArrowRight, Focus, Heart, Users } from "lucide-react"
 export function HeroSection() {
   return (
     <section className="relative min-h-screen pt-32 pb-8 overflow-hidden flex flex-col items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0bb37a]/8 via-transparent to-transparent" />
-      <div className="absolute top-0 left-1/2 w-[800px] h-[800px] bg-[#0bb37a]/5 blur-[150px] rounded-full -translate-x-1/2" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#0bb37a]/10 blur-[120px] rounded-full translate-x-1/3 translate-y-1/3" />
-
-      {/* Subtle grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
       <div className="relative max-w-7xl mx-auto px-6 w-full">
-        <div className="flex flex-col items-center text-center gap-8">
-          {/* Content */}
-          <div className="flex flex-col items-center gap-6 md:gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 max-w-4xl mx-auto w-full">
+        <div className="flex flex-col items-center text-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:text-left lg:gap-16">
+
+          {/* Content Column - Left on Desktop */}
+          <div className="flex flex-col items-center lg:items-start gap-6 md:gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 w-full lg:w-[52%]">
 
             {/* Shipping Banner */}
-            <div className="inline-flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm md:text-base font-medium text-white bg-white/5 border border-white/10 rounded-full px-5 py-1.5 md:px-6 md:py-2 backdrop-blur-sm">
+            <div className="inline-flex flex-wrap justify-center lg:justify-start items-center gap-x-4 gap-y-2 text-sm md:text-base font-medium text-white bg-white/5 border border-white/10 rounded-full px-5 py-1.5 md:px-6 md:py-2 backdrop-blur-sm">
               <span>Envío gratis en todo Colombia</span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-[#0bb37a] rounded-full animate-pulse" />
@@ -33,7 +28,7 @@ export function HeroSection() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0bb37a] to-[#0dd98b]">tiempo</span>
             </h1>
 
-            <div className="flex flex-col gap-2 text-center">
+            <div className="flex flex-col gap-2 text-center lg:text-left">
               <p className="text-xl md:text-2xl text-white font-medium leading-tight">
                 La solución física para una vida digital saludable
               </p>
@@ -42,9 +37,9 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="flex flex-col items-center gap-4 w-full sm:w-auto mt-2">
+            <div className="flex flex-col items-center lg:items-start gap-4 w-full sm:w-auto mt-2">
               {/* Buy-line */}
-              <div className="text-center space-y-1.5 text-sm md:text-base">
+              <div className="text-center lg:text-left space-y-1.5 text-sm md:text-base">
                 <p className="text-gray-200 font-medium">
                   $89.900 COP <span className="text-gray-500">·</span> Acceso de por vida <span className="text-gray-500">·</span> Envío gratis
                 </p>
@@ -66,7 +61,7 @@ export function HeroSection() {
               </Button>
 
               {/* Microcopy */}
-              <div className="text-center space-y-1.5 pt-1">
+              <div className="text-center lg:text-left space-y-1.5 pt-1">
                 <p className="text-gray-300 text-sm font-medium">
                   Pruébala 30 días sin riesgo.
                 </p>
@@ -77,7 +72,7 @@ export function HeroSection() {
             </div>
 
             {/* Horizontal Chips */}
-            <div className="flex flex-wrap justify-center gap-3 mt-4 w-full">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-4 w-full">
               {[
                 "Más concentración",
                 "Más presencia",
@@ -91,10 +86,13 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Phone Mockup - Centered */}
-          <div className="flex justify-center w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-none animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-200">
-            <PhoneMockup />
+          {/* Phone Mockup Column - Right on Desktop */}
+          <div className="w-full lg:w-[48%] flex justify-center lg:justify-end animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-200">
+            <div className="max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[520px]">
+              <PhoneMockup />
+            </div>
           </div>
+
         </div>
       </div>
     </section>

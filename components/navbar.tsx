@@ -38,31 +38,37 @@ export function Navbar() {
               Cómo funciona
             </a>
             <a
-              href="#beneficios"
+              href="#por-que-recobra"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
                 if (isHomePage) {
                   e.preventDefault();
-                  const element = document.getElementById("beneficios");
+                  const element = document.getElementById("por-que-recobra");
                   element?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }
               }}
             >
-              Beneficios
+              ¿Por qué Recobra?
             </a>
             <a
-              href="#faq"
+              href="#testimonios"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
                 if (isHomePage) {
                   e.preventDefault();
-                  const element = document.getElementById("faq");
+                  const element = document.getElementById("testimonios");
                   element?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }
               }}
             >
-              Preguntas frecuentes
+              Testimonios
             </a>
+            <Link
+              href="/contacto"
+              className="text-muted-foreground hover:text-white transition-colors"
+            >
+              Contáctanos
+            </Link>
             <Button asChild className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-6">
               <a href="https://checkout.wompi.co/l/V5u4U0">Compra ahora</a>
             </Button>
@@ -92,33 +98,40 @@ export function Navbar() {
               Cómo funciona
             </a>
             <a
-              href="/#beneficios"
+              href="/#por-que-recobra"
               className="text-muted-foreground hover:text-white transition-colors py-2"
               onClick={(e) => {
                 if (isHomePage) {
                   e.preventDefault();
-                  const element = document.getElementById("beneficios");
+                  const element = document.getElementById("por-que-recobra");
                   element?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }
                 setIsOpen(false);
               }}
             >
-              Beneficios
+              ¿Por qué Recobra?
             </a>
             <a
-              href="/#faq"
+              href="/#testimonios"
               className="text-muted-foreground hover:text-white transition-colors py-2"
               onClick={(e) => {
                 if (isHomePage) {
                   e.preventDefault();
-                  const element = document.getElementById("faq");
+                  const element = document.getElementById("testimonios");
                   element?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }
                 setIsOpen(false);
               }}
             >
-              Preguntas frecuentes
+              Testimonios
             </a>
+            <Link
+              href="/contacto"
+              className="text-muted-foreground hover:text-white transition-colors py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Contáctanos
+            </Link>
             <Button
               asChild
               className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2"

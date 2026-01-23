@@ -42,9 +42,9 @@ export function HowItWorks() {
   }
 
   return (
-    <section id="como-funciona" className="py-12 md:py-20 relative bg-background">
+    <section id="como-funciona" className="py-10 md:py-16 relative bg-background">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-10">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Cómo funciona</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Cuatro pasos para recuperar el control de tu tiempo.

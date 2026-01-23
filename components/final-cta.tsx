@@ -29,7 +29,7 @@ export function FinalCta() {
   }, [])
 
   return (
-    <section className="py-10 md:py-14 relative" ref={sectionRef}>
+    <section className="py-10 md:py-16 relative" ref={sectionRef}>
       <div className="max-w-4xl mx-auto px-6 text-center">
         <div
           className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -48,7 +48,7 @@ export function FinalCta() {
             className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-10 py-7 text-lg font-semibold shadow-lg shadow-[#0bb37a]/20 group"
           >
             <a href="https://checkout.wompi.co/l/V5u4U0">
-              Compra ahora
+              Pruébala hoy
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>

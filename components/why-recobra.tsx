@@ -62,11 +62,11 @@ export function WhyRecobra() {
     }
 
     return (
-        <section className="py-6 md:py-32 relative overflow-hidden">
+        <section id="por-que-recobra" className="py-6 md:py-20 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Header - Compact on mobile */}
-                <div className="text-center mb-4 md:mb-24">
+                <div className="text-center mb-4 md:mb-14">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-1.5 md:mb-4">¿Por qué Recobra?</h2>
                     <p className="text-muted-foreground text-sm md:text-xl max-w-2xl mx-auto leading-tight md:leading-normal">
                         Porque tus distracciones no deberían poder saltarse con un click.

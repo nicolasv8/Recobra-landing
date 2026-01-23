@@ -126,6 +126,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -156,20 +157,24 @@ html {
 
 /* Custom animations for phone mockup */
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
 }
 
 @keyframes pulse-slow {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -185,4 +190,40 @@ html {
 
 .delay-1000 {
   animation-delay: 1000ms;
+}
+
+/* Premium Background System - Unified across all sections */
+/* Tuning constants:
+   - Noise opacity: 0.15 (range: 0.08-0.20)
+   - Dot pattern opacity: 0.04 (range: 0.02-0.08)
+   - Emerald glow opacity: 0.08 & 0.12 (range: 0.05-0.15)
+   - Glow radius: 600px & 800px (larger = softer)
+*/
+.premium-background {
+  position: relative;
+  background-color: #000000;
+  background-image:
+    /* Noise texture for organic premium feel */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E"),
+    /* Subtle dot pattern - barely visible */
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    /* Vignette - darker edges */
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%),
+    /* Mid-page emerald glow */
+    radial-gradient(circle 600px at 50% 120%, rgba(11, 179, 122, 0.08) 0%, transparent 100%),
+    /* Top emerald glow - hero area */
+    radial-gradient(circle 800px at 50% 0%, rgba(11, 179, 122, 0.12) 0%, transparent 100%);
+  background-size:
+    200px 200px,
+    32px 32px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  background-position:
+    0 0,
+    0 0,
+    center,
+    center,
+    center;
+  background-attachment: fixed;
 }
