@@ -1,18 +1,23 @@
 "use client"
 
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 
+import Link from "next/link"
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <img src="recobra-logo.png" alt="Recobra" className="w-9 h-9" />
             <span className="text-2xl font-bold text-white"><span className="text-[#0bb37a]">Re</span>cobra</span>
           </a>
@@ -23,9 +28,11 @@ export function Navbar() {
               href="#como-funciona"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
-                e.preventDefault();
-                const element = document.getElementById("como-funciona");
-                element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                if (isHomePage) {
+                  e.preventDefault();
+                  const element = document.getElementById("como-funciona");
+                  element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
               }}
             >
               Cómo funciona
@@ -34,9 +41,11 @@ export function Navbar() {
               href="#beneficios"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
-                e.preventDefault();
-                const element = document.getElementById("beneficios");
-                element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                if (isHomePage) {
+                  e.preventDefault();
+                  const element = document.getElementById("beneficios");
+                  element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
               }}
             >
               Beneficios
@@ -45,9 +54,11 @@ export function Navbar() {
               href="#faq"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
-                e.preventDefault();
-                const element = document.getElementById("faq");
-                element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                if (isHomePage) {
+                  e.preventDefault();
+                  const element = document.getElementById("faq");
+                  element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
               }}
             >
               Preguntas frecuentes
@@ -67,37 +78,43 @@ export function Navbar() {
         {isOpen && (
           <div className="md:hidden mt-4 pb-4 flex flex-col gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
             <a
-              href="#como-funciona"
+              href="/#como-funciona"
               className="text-muted-foreground hover:text-white transition-colors py-2"
               onClick={(e) => {
-                e.preventDefault();
+                if (isHomePage) {
+                  e.preventDefault();
+                  const element = document.getElementById("como-funciona");
+                  element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
                 setIsOpen(false);
-                const element = document.getElementById("como-funciona");
-                element?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
             >
               Cómo funciona
             </a>
             <a
-              href="#beneficios"
+              href="/#beneficios"
               className="text-muted-foreground hover:text-white transition-colors py-2"
               onClick={(e) => {
-                e.preventDefault();
+                if (isHomePage) {
+                  e.preventDefault();
+                  const element = document.getElementById("beneficios");
+                  element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
                 setIsOpen(false);
-                const element = document.getElementById("beneficios");
-                element?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
             >
               Beneficios
             </a>
             <a
-              href="#faq"
+              href="/#faq"
               className="text-muted-foreground hover:text-white transition-colors py-2"
               onClick={(e) => {
-                e.preventDefault();
+                if (isHomePage) {
+                  e.preventDefault();
+                  const element = document.getElementById("faq");
+                  element?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
                 setIsOpen(false);
-                const element = document.getElementById("faq");
-                element?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
             >
               Preguntas frecuentes

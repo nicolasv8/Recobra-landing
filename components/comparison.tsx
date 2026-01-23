@@ -11,7 +11,7 @@ const features = [
     willpower: false,
   },
   {
-    name: "Activación instantánea NFC",
+    name: "Activación instantánea",
     recobra: true,
     apps: false,
     willpower: false,
@@ -19,7 +19,7 @@ const features = [
   {
     name: "Elige qué apps bloquear",
     recobra: true,
-    apps: true,
+    apps: false,
     willpower: false,
   },
   {
@@ -63,9 +63,8 @@ export function Comparison() {
     <section id="comparacion" className="py-10 md:py-14 relative" ref={sectionRef}>
       <div className="max-w-5xl mx-auto px-6">
         <div
-          className={`text-center mb-10 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             ¿Por qué <span className="text-[#0bb37a]">Recobra</span>?
@@ -76,71 +75,74 @@ export function Comparison() {
         </div>
 
         <div
-          className={`overflow-hidden rounded-2xl border border-[#1a1a1a] bg-gradient-to-b from-[#0a0a0a] to-transparent transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`overflow-hidden rounded-2xl border border-[#1a1a1a] bg-gradient-to-b from-[#0a0a0a] to-transparent transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
-          {/* Header */}
-          <div className="grid grid-cols-4 gap-4 p-6 border-b border-[#1a1a1a] bg-[#0a0a0a]">
-            <div className="text-muted-foreground font-medium">Característica</div>
-            <div className="text-center">
-              <span className="text-[#0bb37a] font-bold text-lg">Recobra</span>
-            </div>
-            <div className="text-center">
-              <span className="text-muted-foreground font-medium">Apps de bloqueo</span>
-            </div>
-            <div className="text-center">
-              <span className="text-muted-foreground font-medium">Fuerza de voluntad</span>
+          <div className="overflow-x-auto">
+            <div className="min-w-[800px]">
+              {/* Header */}
+              <div className="grid grid-cols-4 gap-4 p-6 border-b border-[#1a1a1a] bg-[#0a0a0a]">
+                <div className="text-muted-foreground font-medium">Característica</div>
+                <div className="text-center">
+                  <span className="text-[#0bb37a] font-bold text-lg">Recobra</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-muted-foreground font-medium">Apps de bloqueo</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-muted-foreground font-medium">Fuerza de voluntad</span>
+                </div>
+              </div>
+
+              {/* Rows */}
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className={`grid grid-cols-4 gap-4 p-6 border-b border-[#1a1a1a] last:border-b-0 transition-all duration-500`}
+                  style={{
+                    transitionDelay: `${index * 100 + 300}ms`,
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? "translateX(0)" : "translateX(-20px)",
+                  }}
+                >
+                  <div className="text-white font-medium flex items-center">{feature.name}</div>
+                  <div className="flex justify-center">
+                    {feature.recobra ? (
+                      <div className="w-8 h-8 rounded-full bg-[#0bb37a] flex items-center justify-center">
+                        <Check className="w-5 h-5 text-black" />
+                      </div>
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                        <X className="w-5 h-5 text-red-500" />
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex justify-center">
+                    {feature.apps ? (
+                      <div className="w-8 h-8 rounded-full bg-[#0bb37a]/20 flex items-center justify-center">
+                        <Check className="w-5 h-5 text-[#0bb37a]" />
+                      </div>
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                        <X className="w-5 h-5 text-red-500" />
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex justify-center">
+                    {feature.willpower ? (
+                      <div className="w-8 h-8 rounded-full bg-[#0bb37a]/20 flex items-center justify-center">
+                        <Check className="w-5 h-5 text-[#0bb37a]" />
+                      </div>
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                        <X className="w-5 h-5 text-red-500" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* Rows */}
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`grid grid-cols-4 gap-4 p-6 border-b border-[#1a1a1a] last:border-b-0 transition-all duration-500`}
-              style={{
-                transitionDelay: `${index * 100 + 300}ms`,
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateX(0)" : "translateX(-20px)",
-              }}
-            >
-              <div className="text-white font-medium flex items-center">{feature.name}</div>
-              <div className="flex justify-center">
-                {feature.recobra ? (
-                  <div className="w-8 h-8 rounded-full bg-[#0bb37a] flex items-center justify-center">
-                    <Check className="w-5 h-5 text-black" />
-                  </div>
-                ) : (
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <X className="w-5 h-5 text-red-500" />
-                  </div>
-                )}
-              </div>
-              <div className="flex justify-center">
-                {feature.apps ? (
-                  <div className="w-8 h-8 rounded-full bg-[#0bb37a]/20 flex items-center justify-center">
-                    <Check className="w-5 h-5 text-[#0bb37a]" />
-                  </div>
-                ) : (
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <X className="w-5 h-5 text-red-500" />
-                  </div>
-                )}
-              </div>
-              <div className="flex justify-center">
-                {feature.willpower ? (
-                  <div className="w-8 h-8 rounded-full bg-[#0bb37a]/20 flex items-center justify-center">
-                    <Check className="w-5 h-5 text-[#0bb37a]" />
-                  </div>
-                ) : (
-                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <X className="w-5 h-5 text-red-500" />
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

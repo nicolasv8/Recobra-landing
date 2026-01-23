@@ -1,3 +1,6 @@
+import { Instagram } from "lucide-react"
+import Link from "next/link"
+
 export function Footer() {
   return (
     <footer className="py-12 border-t border-[#1a1a1a]">
@@ -10,14 +13,43 @@ export function Footer() {
 
           {/* Links */}
           <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-white transition-colors">
+            <a href="/privacidad" className="text-muted-foreground hover:text-white transition-colors">
               Privacidad
             </a>
-            <a href="#" className="text-muted-foreground hover:text-white transition-colors">
-              Términos
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-white transition-colors">
+            <Link href="/contacto" className="text-muted-foreground hover:text-white transition-colors">
               Contacto
+            </Link>
+          </div>
+
+          {/* Socials */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.instagram.com/recobratutiempo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-white transition-colors"
+            >
+              <Instagram size={20} />
+            </a>
+            <a
+              href="https://www.tiktok.com/@recobratutiempo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-white transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+              </svg>
             </a>
           </div>
 
