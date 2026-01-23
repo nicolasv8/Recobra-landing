@@ -119,13 +119,13 @@ export function WhyRecobra() {
                         <div className="flex flex-col items-center w-full max-w-sm lg:hidden">
 
                             {/* Comparison Hint - Always visible */}
-                            <div className="text-[#0bb37a] text-[10px] font-medium tracking-wide flex items-center gap-1 animate-pulse">
+                            <div className="text-[#0bb37a] text-[12px] font-medium tracking-wide flex items-center gap-1 animate-pulse">
                                 <span>Desliza para comparar</span>
                                 <ArrowRight className="w-2.5 h-2.5" />
                             </div>
 
                             {/* Toggle Control */}
-                            <div className="flex p-0.5 bg-white/5 rounded-full border border-white/10 w-full max-w-[260px] mb-2" role="tablist">
+                            <div className="flex p-1 bg-white/5 rounded-full border border-white/10 w-full max-w-[320px]" role="tablist">
                                 <button
                                     role="tab"
                                     aria-selected={mode === 'con'}
@@ -204,22 +204,22 @@ export function WhyRecobra() {
                                     <div className="space-y-1 animate-in fade-in slide-in-from-left-4 duration-300">
                                         <div className="flex items-start gap-2">
                                             <div className="w-1 h-1 rounded-full bg-[#0bb37a] mt-1.5 flex-shrink-0" />
-                                            <p className="text-white text-[11px] font-medium leading-tight">El desbloqueo está protegido por la tarjeta física.</p>
+                                            <p className="text-white text-sm font-medium leading-tight">El desbloqueo está protegido por la tarjeta física.</p>
                                         </div>
                                         <div className="flex items-start gap-2">
                                             <div className="w-1 h-1 rounded-full bg-[#0bb37a] mt-1.5 flex-shrink-0" />
-                                            <p className="text-white text-[11px] font-medium leading-tight">Desbloquea con intención, no por impulso.</p>
+                                            <p className="text-white text-sm font-medium leading-tight">Desbloquea con intención, no por impulso.</p>
                                         </div>
                                     </div>
                                 ) : (
                                     <div className="space-y-1 animate-in fade-in slide-in-from-right-4 duration-300">
                                         <div className="flex items-start gap-2">
                                             <div className="w-1 h-1 rounded-full bg-red-500 mt-1.5 flex-shrink-0" />
-                                            <p className="text-white text-[11px] font-medium leading-tight">El 'escape' está a un toque: 'solo un minuto más'.</p>
+                                            <p className="text-white text-sm font-medium leading-tight">El 'escape' está a un toque: 'solo un minuto más'.</p>
                                         </div>
                                         <div className="flex items-start gap-2">
                                             <div className="w-1 h-1 rounded-full bg-red-500 mt-1.5 flex-shrink-0" />
-                                            <p className="text-white text-[11px] font-medium leading-tight">Perfecto para recaer por impulso.</p>
+                                            <p className="text-white text-sm font-medium leading-tight">Perfecto para recaer por impulso.</p>
                                         </div>
                                     </div>
                                 )}
