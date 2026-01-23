@@ -1,10 +1,12 @@
 "use client"
 
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import Image from "next/image"
 
 export function WhyRecobra() {
+    const [mode, setMode] = useState<'con' | 'sin'>('con')
+
     return (
         <section className="py-20 md:py-32 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
@@ -19,7 +21,7 @@ export function WhyRecobra() {
 
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-                    {/* Left Column: Copy & Context */}
+                    {/* Left Column: Copy & Context (Common) */}
                     <div className="flex flex-col gap-8 order-2 lg:order-1 text-center lg:text-left">
                         <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                             Dile adiós al <span className="text-[#0bb37a]">'solo un minuto más'</span> <br />
@@ -53,12 +55,86 @@ export function WhyRecobra() {
                     {/* Right Column: Comparison Mockups */}
                     <div className="order-1 lg:order-2 flex flex-col items-center">
 
-                        {/* Mobile: Vertical Stack / Desktop: Side by Side (Sort of) */}
-                        {/* Design request: 
-                Mobile: A -> VS -> B
-                Desktop: Side by Side
-            */}
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-12 lg:gap-16 relative w-full max-w-4xl mx-auto">
+                        {/* --- MOBILE VIEW (< lg) --- */}
+                        <div className="flex flex-col items-center gap-8 w-full max-w-sm lg:hidden">
+
+                            {/* Toggle Control */}
+                            <div className="flex p-1 bg-white/5 rounded-full border border-white/10 w-full max-w-[300px]" role="tablist">
+                                <button
+                                    role="tab"
+                                    aria-selected={mode === 'con'}
+                                    onClick={() => setMode('con')}
+                                    className={`flex-1 py-2 text-sm font-bold rounded-full transition-all duration-300 ${mode === 'con'
+                                            ? "bg-[#0bb37a] text-black shadow-lg shadow-[#0bb37a]/20"
+                                            : "text-muted-foreground hover:text-white"
+                                        }`}
+                                >
+                                    Con Recobra
+                                </button>
+                                <button
+                                    role="tab"
+                                    aria-selected={mode === 'sin'}
+                                    onClick={() => setMode('sin')}
+                                    className={`flex-1 py-2 text-sm font-bold rounded-full transition-all duration-300 ${mode === 'sin'
+                                            ? "bg-white text-black shadow-lg"
+                                            : "text-muted-foreground hover:text-white"
+                                        }`}
+                                >
+                                    Sin Recobra
+                                </button>
+                            </div>
+
+                            {/* Single Mockup Viewport */}
+                            <div className="relative w-full aspect-[9/19] flex items-center justify-center">
+                                {/* Con Recobra Image */}
+                                <img
+                                    src="/mockup-con-recobra.png"
+                                    alt="iPhone con Recobra"
+                                    className={`absolute inset-0 w-full h-full object-contain drop-shadow-2xl transition-all duration-500 transform ${mode === 'con' ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-95 -translate-x-8 pointer-events-none"
+                                        }`}
+                                />
+
+                                {/* Sin Recobra Image */}
+                                <img
+                                    src="/mockup-sin-recobra.png"
+                                    alt="iPhone sin Recobra"
+                                    className={`absolute inset-0 w-full h-full object-contain drop-shadow-2xl transition-all duration-500 transform ${mode === 'sin' ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-95 translate-x-8 pointer-events-none"
+                                        }`}
+                                />
+                            </div>
+
+                            {/* Dynamic Bullets */}
+                            <div className="space-y-3 min-h-[80px]">
+                                {mode === 'con' ? (
+                                    <div className="space-y-2 animate-in fade-in slide-in-from-left-4 duration-300">
+                                        <div className="flex items-start gap-3">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-[#0bb37a] mt-2 flex-shrink-0" />
+                                            <p className="text-white text-sm font-medium">El desbloqueo está protegido por la tarjeta física.</p>
+                                        </div>
+                                        <div className="flex items-start gap-3">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-[#0bb37a] mt-2 flex-shrink-0" />
+                                            <p className="text-white text-sm font-medium">Desbloquea con intención, no por impulso.</p>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="space-y-2 animate-in fade-in slide-in-from-right-4 duration-300">
+                                        <div className="flex items-start gap-3">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
+                                            <p className="text-white text-sm font-medium">El 'escape' está a un toque: 'solo un minuto más'.</p>
+                                        </div>
+                                        <div className="flex items-start gap-3">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
+                                            <p className="text-white text-sm font-medium">Perfecto para recaer por impulso.</p>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                        </div>
+
+                        {/* --- DESKTOP VIEW (>= lg) - UNTOUCHED --- */}
+                        {/* Note: Kept strictly separate to prevent regression */}
+                        <div className="hidden lg:flex flex-col sm:flex-row items-center justify-center gap-12 lg:gap-16 relative w-full max-w-4xl mx-auto">
 
                             {/* Con Recobra (Left/Top) */}
                             <div className="flex flex-col items-center gap-6 relative z-10 w-full sm:w-1/2 max-w-[320px] group">
@@ -113,3 +189,4 @@ export function WhyRecobra() {
         </section>
     )
 }
+
