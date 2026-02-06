@@ -12,7 +12,7 @@ import Link from "next/link"
 // Example: const APP_STORE_URL = "https://apps.apple.com/us/app/recobra/id123456789";
 const APP_STORE_URL = "https://apps.apple.com/app/recobra/id6754703277";
 
-export default function DescargarPage() {
+export default function AppPage() {
 
     useEffect(() => {
         if (APP_STORE_URL) {
