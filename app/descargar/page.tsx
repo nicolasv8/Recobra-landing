@@ -10,9 +10,9 @@ import Link from "next/link"
 // Define the App Store URL here for manual switch.
 // When the app is approved, change null to the actual URL string.
 // Example: const APP_STORE_URL = "https://apps.apple.com/us/app/recobra/id123456789";
-const APP_STORE_URL: string | null = null;
+const APP_STORE_URL = "https://apps.apple.com/app/recobra/id6754703277";
 
-export default function AppPage() {
+export default function DescargarPage() {
 
     useEffect(() => {
         if (APP_STORE_URL) {
