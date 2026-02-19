@@ -20,6 +20,9 @@ interface BuildCheckoutUrlInput {
   redirectUrl: string
   expirationTime?: string
   collectShipping?: boolean
+  itemName?: string
+  itemDescription?: string
+  itemImageUrl?: string
 }
 
 interface WompiTransactionApiResponse {
@@ -100,6 +103,18 @@ export function buildWompiCheckoutUrl(input: BuildCheckoutUrlInput): string {
 
   if (input.expirationTime) {
     params.set("expiration-time", input.expirationTime)
+  }
+
+  if (input.itemName?.trim()) {
+    params.set("name", input.itemName.trim())
+  }
+
+  if (input.itemDescription?.trim()) {
+    params.set("description", input.itemDescription.trim())
+  }
+
+  if (input.itemImageUrl?.trim()) {
+    params.set("image-url", input.itemImageUrl.trim())
   }
 
   return `https://checkout.wompi.co/p/?${params.toString()}`

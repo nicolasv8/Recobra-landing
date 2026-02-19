@@ -15,6 +15,11 @@ interface CheckRateLimitInput {
   windowMs: number
 }
 
+interface UpstashPipelineItem {
+  result?: unknown
+  error?: string
+}
+
 declare global {
   // eslint-disable-next-line no-var
   var __recobraRateLimitBuckets: Map<string, RateLimitBucket> | undefined
@@ -62,7 +67,7 @@ export function getClientIp(request: Request): string {
   return "unknown"
 }
 
-export function checkRateLimit({ key, limit, windowMs }: CheckRateLimitInput): RateLimitResult {
+function checkRateLimitInMemory({ key, limit, windowMs }: CheckRateLimitInput): RateLimitResult {
   const now = Date.now()
   const buckets = getBuckets()
 
@@ -93,4 +98,82 @@ export function checkRateLimit({ key, limit, windowMs }: CheckRateLimitInput): R
     remaining: Math.max(0, limit - bucket.count),
     retryAfterSeconds: Math.max(1, Math.ceil((bucket.resetAt - now) / 1000)),
   }
+}
+
+function getUpstashConfig(): { url: string; token: string } | null {
+  const url = process.env.UPSTASH_REDIS_REST_URL?.trim()
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN?.trim()
+
+  if (!url || !token) {
+    return null
+  }
+
+  return {
+    url: url.replace(/\/$/, ""),
+    token,
+  }
+}
+
+async function checkRateLimitWithUpstash({
+  key,
+  limit,
+  windowMs,
+}: CheckRateLimitInput): Promise<RateLimitResult> {
+  const config = getUpstashConfig()
+
+  if (!config) {
+    throw new Error("Upstash rate limit config is missing")
+  }
+
+  const redisKey = `recobra:ratelimit:${key}`
+  const response = await fetch(`${config.url}/pipeline`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${config.token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify([
+      ["INCR", redisKey],
+      ["PEXPIRE", redisKey, String(windowMs), "NX"],
+      ["PTTL", redisKey],
+    ]),
+    cache: "no-store",
+  })
+
+  if (!response.ok) {
+    throw new Error(`Upstash rate limit request failed with ${response.status}`)
+  }
+
+  const payload = (await response.json()) as UpstashPipelineItem[]
+  const currentCount = Number(payload?.[0]?.result)
+  const ttlMs = Number(payload?.[2]?.result)
+
+  if (!Number.isFinite(currentCount) || currentCount <= 0) {
+    throw new Error("Invalid Upstash rate limit counter response")
+  }
+
+  const retryAfterSeconds =
+    Number.isFinite(ttlMs) && ttlMs > 0
+      ? Math.ceil(ttlMs / 1000)
+      : Math.ceil(windowMs / 1000)
+
+  return {
+    allowed: currentCount <= limit,
+    remaining: Math.max(0, limit - currentCount),
+    retryAfterSeconds: Math.max(1, retryAfterSeconds),
+  }
+}
+
+export async function checkRateLimit(input: CheckRateLimitInput): Promise<RateLimitResult> {
+  const upstashConfig = getUpstashConfig()
+
+  if (upstashConfig) {
+    try {
+      return await checkRateLimitWithUpstash(input)
+    } catch {
+      return checkRateLimitInMemory(input)
+    }
+  }
+
+  return checkRateLimitInMemory(input)
 }

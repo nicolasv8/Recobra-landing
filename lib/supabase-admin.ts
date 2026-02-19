@@ -185,6 +185,7 @@ export async function markCheckoutSessionArrived(sessionId: string): Promise<voi
     method: "PATCH",
     query: {
       id: `eq.${sessionId}`,
+      arrived_at: "is.null",
     },
     body: {
       arrived_at: new Date().toISOString(),

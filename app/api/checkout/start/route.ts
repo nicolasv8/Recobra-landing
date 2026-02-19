@@ -20,6 +20,13 @@ const START_CHECKOUT_LIMIT = 30
 const START_CHECKOUT_WINDOW_MS = 10 * 60 * 1000
 const REFERRAL_ATTEMPT_LIMIT = 10
 const REFERRAL_ATTEMPT_WINDOW_MS = 10 * 60 * 1000
+const WOMPI_PRODUCT_DESCRIPTION =
+  "Tarjeta física Recobra para bloquear apps de distracción en tu celular. Incluye 1 tarjeta Recobra activada y acceso vitalicio e ilimitado a la app para gestionar tus sesiones de enfoque."
+const WOMPI_PRODUCT_TITLE_BY_VARIANT: Record<CheckoutVariant, string> = {
+  standard: "Tarjeta Recobra",
+  referral: "Tarjeta Recobra - Referido",
+}
+const WOMPI_PRODUCT_IMAGE_PATH = "/wompi-product-card.png"
 
 const INVALID_REFERRAL_CODE_RESPONSE = {
   ok: false,
@@ -189,7 +196,7 @@ export async function POST(request: Request) {
   }
 
   const clientIp = getClientIp(request)
-  const startLimitCheck = checkRateLimit({
+  const startLimitCheck = await checkRateLimit({
     key: `checkout:start:${clientIp}`,
     limit: START_CHECKOUT_LIMIT,
     windowMs: START_CHECKOUT_WINDOW_MS,
@@ -207,7 +214,7 @@ export async function POST(request: Request) {
   let referralCodeSnapshot: string | null = null
 
   if (normalizedReferralCode) {
-    const referralAttemptLimitCheck = checkRateLimit({
+    const referralAttemptLimitCheck = await checkRateLimit({
       key: `checkout:referral:${clientIp}`,
       limit: REFERRAL_ATTEMPT_LIMIT,
       windowMs: REFERRAL_ATTEMPT_WINDOW_MS,
@@ -243,7 +250,9 @@ export async function POST(request: Request) {
 
   try {
     const wompiConfig = getWompiConfig()
-    const redirectUrl = new URL("/gracias", getSiteUrl())
+    const siteUrl = getSiteUrl()
+    const redirectUrl = new URL("/gracias", siteUrl)
+    const productImageUrl = new URL(WOMPI_PRODUCT_IMAGE_PATH, siteUrl).toString()
 
     redirectUrl.searchParams.set("sessionId", sessionId)
     redirectUrl.searchParams.set("reference", reference)
@@ -270,6 +279,9 @@ export async function POST(request: Request) {
       reference,
       integritySecret: wompiConfig.integritySecret,
       redirectUrl: redirectUrl.toString(),
+      itemName: WOMPI_PRODUCT_TITLE_BY_VARIANT[checkoutVariant],
+      itemDescription: WOMPI_PRODUCT_DESCRIPTION,
+      itemImageUrl: productImageUrl,
     })
 
     return NextResponse.json({

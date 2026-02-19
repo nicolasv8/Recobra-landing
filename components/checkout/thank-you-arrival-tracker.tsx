@@ -18,6 +18,8 @@ export function ThankYouArrivalTracker() {
       return
     }
 
+    window.sessionStorage.setItem(storageKey, "pending")
+
     const sendArrival = async () => {
       try {
         await fetch("/api/checkout/arrive", {
@@ -25,6 +27,7 @@ export function ThankYouArrivalTracker() {
           headers: {
             "Content-Type": "application/json",
           },
+          keepalive: true,
           body: JSON.stringify({ sessionId }),
         })
       } finally {

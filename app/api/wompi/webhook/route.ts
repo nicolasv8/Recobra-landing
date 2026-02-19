@@ -47,6 +47,33 @@ function getStoredPayload(payload: WompiWebhookPayload): WompiWebhookPayload {
   }
 }
 
+function buildWebhookEventId(rawBody: string, payload: WompiWebhookPayload, eventType: string): string {
+  if (eventType !== "transaction.updated") {
+    return createHash("sha256").update(rawBody).digest("hex")
+  }
+
+  const transaction = payload.data?.transaction
+  const transactionId =
+    transaction?.id === undefined || transaction?.id === null
+      ? ""
+      : String(transaction.id).trim()
+  const reference =
+    typeof transaction?.reference === "string" ? transaction.reference.trim() : ""
+  const status = typeof transaction?.status === "string" ? transaction.status.trim().toUpperCase() : ""
+
+  if (!transactionId || !reference || !status) {
+    return createHash("sha256").update(rawBody).digest("hex")
+  }
+
+  const amountInCents =
+    typeof transaction?.amount_in_cents === "number" ? String(transaction.amount_in_cents) : ""
+  const currency =
+    typeof transaction?.currency === "string" ? transaction.currency.trim().toUpperCase() : ""
+  const dedupeKey = `tx.updated|${transactionId}|${reference}|${status}|${amountInCents}|${currency}`
+
+  return createHash("sha256").update(dedupeKey).digest("hex")
+}
+
 export async function POST(request: Request) {
   const contentLengthHeader = request.headers.get("content-length")
   const contentLength = contentLengthHeader ? Number.parseInt(contentLengthHeader, 10) : 0
@@ -93,6 +120,7 @@ export async function POST(request: Request) {
     const wompiConfig = getWompiConfig()
     const checksumHeader = request.headers.get("x-event-checksum")
     const signatureValid = verifyWompiEventSignature(payload, wompiConfig.eventsSecret, checksumHeader)
+    const storedPayload = getStoredPayload(payload)
 
     if (!signatureValid) {
       return NextResponse.json(
@@ -104,7 +132,7 @@ export async function POST(request: Request) {
       )
     }
 
-    const eventId = createHash("sha256").update(rawBody).digest("hex")
+    const eventId = buildWebhookEventId(rawBody, payload, eventType)
     const eventExists = await hasWebhookEvent(eventId)
 
     if (eventExists) {
@@ -116,7 +144,7 @@ export async function POST(request: Request) {
         eventId,
         eventType,
         signatureValid: true,
-        payload: getStoredPayload(payload),
+        payload: storedPayload,
       })
 
       return NextResponse.json({ ok: true, skipped: true })
@@ -155,7 +183,7 @@ export async function POST(request: Request) {
         eventId,
         eventType,
         signatureValid: true,
-        payload: getStoredPayload(payload),
+        payload: storedPayload,
       })
 
       return NextResponse.json({ ok: true, skipped: true, reason: "unknown_reference" })
@@ -171,7 +199,26 @@ export async function POST(request: Request) {
       )
     }
 
-    const verifiedTransaction = await fetchWompiTransactionById(String(transaction.id), wompiConfig.publicKey)
+    const transactionId = String(transaction.id)
+    const incomingNormalizedStatus = mapWompiStatusToCheckoutStatus(status)
+    const alreadyProcessed =
+      localSession.status !== "created" &&
+      localSession.status === incomingNormalizedStatus &&
+      localSession.wompi_transaction_id &&
+      String(localSession.wompi_transaction_id) === transactionId
+
+    if (alreadyProcessed) {
+      await storeWebhookEvent({
+        eventId,
+        eventType,
+        signatureValid: true,
+        payload: storedPayload,
+      })
+
+      return NextResponse.json({ ok: true, skipped: true, reason: "already_processed" })
+    }
+
+    const verifiedTransaction = await fetchWompiTransactionById(transactionId, wompiConfig.publicKey)
     const verifiedReference =
       typeof verifiedTransaction.reference === "string" ? verifiedTransaction.reference.trim() : ""
 
@@ -180,7 +227,7 @@ export async function POST(request: Request) {
         eventId,
         eventType,
         signatureValid: true,
-        payload: getStoredPayload(payload),
+        payload: storedPayload,
       })
 
       return NextResponse.json(
@@ -203,7 +250,7 @@ export async function POST(request: Request) {
         eventId,
         eventType,
         signatureValid: true,
-        payload: getStoredPayload(payload),
+        payload: storedPayload,
       })
 
       return NextResponse.json(
@@ -226,7 +273,7 @@ export async function POST(request: Request) {
         eventId,
         eventType,
         signatureValid: true,
-        payload: getStoredPayload(payload),
+        payload: storedPayload,
       })
 
       return NextResponse.json(
@@ -254,7 +301,7 @@ export async function POST(request: Request) {
       eventId,
       eventType,
       signatureValid: true,
-      payload: getStoredPayload(payload),
+      payload: storedPayload,
     })
 
     return NextResponse.json({ ok: true })
