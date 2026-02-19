@@ -39,5 +39,5 @@ jobs:
           WOMPI_INTEGRITY_SECRET: integrity-placeholder
           WOMPI_EVENTS_SECRET: events-placeholder
           WOMPI_CURRENCY: COP
-          WOMPI_NORMAL_AMOUNT_IN_CENTS: "89900"
-          WOMPI_REFERRAL_AMOUNT_IN_CENTS: "79900"
+          WOMPI_NORMAL_AMOUNT_IN_CENTS: "8990000"
+          WOMPI_REFERRAL_AMOUNT_IN_CENTS: "7990000"

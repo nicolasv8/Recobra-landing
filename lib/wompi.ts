@@ -19,6 +19,7 @@ interface BuildCheckoutUrlInput {
   integritySecret: string
   redirectUrl: string
   expirationTime?: string
+  collectShipping?: boolean
 }
 
 interface WompiTransactionApiResponse {
@@ -92,6 +93,10 @@ export function buildWompiCheckoutUrl(input: BuildCheckoutUrlInput): string {
     "signature:integrity": signature,
     "redirect-url": input.redirectUrl,
   })
+
+  if (input.collectShipping ?? true) {
+    params.set("collect-shipping", "true")
+  }
 
   if (input.expirationTime) {
     params.set("expiration-time", input.expirationTime)
