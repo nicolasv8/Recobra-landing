@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { PhoneMockup } from "@/components/phone-mockup"
 import { ArrowRight, Focus, Heart, Users } from "lucide-react"
+import { CheckoutTrigger } from "@/components/checkout/checkout-trigger"
 
 export function HeroSection() {
   return (
@@ -54,10 +55,10 @@ export function HeroSection() {
                 size="lg"
                 className="bg-[#0bb37a] hover:bg-[#0dd98b] text-black font-bold rounded-full px-10 py-6 h-auto text-lg md:text-xl shadow-[0_0_20px_-5px_rgba(11,179,122,0.3)] hover:shadow-[0_0_25px_-5px_rgba(11,179,122,0.4)] transition-all hover:scale-105 group w-full sm:w-auto"
               >
-                <a href="https://checkout.wompi.co/l/V5u4U0" className="flex items-center justify-center">
+                <CheckoutTrigger ctaSource="hero_compra" className="flex items-center justify-center">
                   Compra ahora
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </CheckoutTrigger>
               </Button>
 
               {/* Microcopy */}
@@ -66,7 +67,7 @@ export function HeroSection() {
                   Pruébala 30 días sin riesgo.
                 </p>
                 <p className="text-muted-foreground text-xs md:text-sm">
-                  ⭐️ 26 usuarios ya están recobrando concentración y presencia.
+                  ⭐️ 40 usuarios ya están recobrando concentración y presencia.
                 </p>
               </div>
             </div>

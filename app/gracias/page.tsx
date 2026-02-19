@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { ThankYouArrivalTracker } from "@/components/checkout/thank-you-arrival-tracker"
 import Link from "next/link"
 import { CheckCircle2, Package, MessageSquare } from "lucide-react"
 
@@ -11,6 +12,7 @@ export const metadata = {
 export default function ThankYouPage() {
     return (
         <main className="min-h-screen bg-black text-white selection:bg-[#0BB37A] selection:text-white">
+            <ThankYouArrivalTracker />
             <Navbar />
 
             <div className="container mx-auto px-4 pt-32 pb-20">

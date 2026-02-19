@@ -4,6 +4,7 @@ import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { CheckoutTrigger } from "@/components/checkout/checkout-trigger"
 
 
 import Link from "next/link"
@@ -25,7 +26,7 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <a
-              href="#como-funciona"
+              href="/#como-funciona"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
                 if (isHomePage) {
@@ -38,7 +39,7 @@ export function Navbar() {
               Cómo funciona
             </a>
             <a
-              href="#por-que-recobra"
+              href="/#por-que-recobra"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
                 if (isHomePage) {
@@ -51,7 +52,7 @@ export function Navbar() {
               ¿Por qué Recobra?
             </a>
             <a
-              href="#testimonios"
+              href="/#testimonios"
               className="text-muted-foreground hover:text-white transition-colors"
               onClick={(e) => {
                 if (isHomePage) {
@@ -70,7 +71,7 @@ export function Navbar() {
               Contáctanos
             </Link>
             <Button asChild className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-6">
-              <a href="https://checkout.wompi.co/l/V5u4U0">Compra ahora</a>
+              <CheckoutTrigger ctaSource="navbar_desktop_compra">Compra ahora</CheckoutTrigger>
             </Button>
           </div>
 
@@ -137,7 +138,7 @@ export function Navbar() {
               className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full w-full mt-2"
               onClick={() => setIsOpen(false)}
             >
-              <a href="https://checkout.wompi.co/l/V5u4U0">Compra ahora</a>
+              <CheckoutTrigger ctaSource="navbar_mobile_compra">Compra ahora</CheckoutTrigger>
             </Button>
           </div>
         )}

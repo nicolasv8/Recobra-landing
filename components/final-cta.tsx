@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 
 import { ArrowRight } from "lucide-react"
+import { CheckoutTrigger } from "@/components/checkout/checkout-trigger"
 
 export function FinalCta() {
   const [isVisible, setIsVisible] = useState(false)
@@ -47,10 +48,10 @@ export function FinalCta() {
             size="lg"
             className="bg-[#0bb37a] hover:bg-[#0bb37a]/90 text-white rounded-full px-10 py-7 text-lg font-semibold shadow-lg shadow-[#0bb37a]/20 group"
           >
-            <a href="https://checkout.wompi.co/l/V5u4U0">
+            <CheckoutTrigger ctaSource="final_cta_pruebala_hoy">
               Pruébala hoy
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </CheckoutTrigger>
           </Button>
         </div>
       </div>

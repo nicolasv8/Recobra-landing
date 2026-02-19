@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { CheckoutTrigger } from "@/components/checkout/checkout-trigger"
 
 export function WhyRecobra() {
     const [mode, setMode] = useState<'con' | 'sin'>('con')
@@ -97,10 +98,10 @@ export function WhyRecobra() {
                                 size="lg"
                                 className="bg-[#0bb37a] hover:bg-[#0dd98b] text-black font-bold rounded-full px-10 py-6 h-auto text-lg shadow-lg shadow-[#0bb37a]/20 hover:shadow-[#0bb37a]/30 transition-all hover:scale-105 group"
                             >
-                                <a href="https://checkout.wompi.co/l/V5u4U0">
+                                <CheckoutTrigger ctaSource="why_recobra_compra">
                                     Compra • $89.900
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </a>
+                                </CheckoutTrigger>
                             </Button>
                         </div>
                     </div>
@@ -284,4 +285,3 @@ export function WhyRecobra() {
         </section>
     )
 }
-

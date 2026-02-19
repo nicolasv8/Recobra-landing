@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Nunito } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { ReferralCheckoutProvider } from "@/components/checkout/referral-checkout-provider"
 import "./globals.css"
 
 const nunito = Nunito({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] })
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`font-sans antialiased premium-background`}>
-        {children}
+        <ReferralCheckoutProvider>{children}</ReferralCheckoutProvider>
         <Analytics />
       </body>
     </html>

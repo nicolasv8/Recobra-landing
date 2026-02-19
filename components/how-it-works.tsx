@@ -3,6 +3,7 @@
 import { useRef, useState } from "react"
 import { Smartphone, Zap, Lock, CreditCard, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { CheckoutTrigger } from "@/components/checkout/checkout-trigger"
 
 const steps = [
   {
@@ -116,9 +117,9 @@ export function HowItWorks() {
             size="lg"
             className="bg-[#0bb37a] hover:bg-[#0dd98b] text-black font-bold rounded-full px-8 py-6 h-auto text-lg shadow-lg shadow-[#0bb37a]/20 hover:shadow-[#0bb37a]/30 transition-all hover:scale-105"
           >
-            <a href="https://checkout.wompi.co/l/V5u4U0">
+            <CheckoutTrigger ctaSource="how_it_works_pruebala_hoy">
               Prúebala hoy
-            </a>
+            </CheckoutTrigger>
           </Button>
         </div>
 
