@@ -79,6 +79,47 @@ function getRateLimitResponse(retryAfterSeconds: number) {
   )
 }
 
+function getAllowedRequestOrigins(request: Request): Set<string> {
+  const allowedOrigins = new Set<string>()
+
+  try {
+    allowedOrigins.add(new URL(getSiteUrl()).origin)
+  } catch {
+    // Ignore malformed or missing NEXT_PUBLIC_SITE_URL here; other checks still apply.
+  }
+
+  try {
+    allowedOrigins.add(new URL(request.url).origin)
+  } catch {
+    // Ignore malformed request URL.
+  }
+
+  const forwardedHost = request.headers.get("x-forwarded-host")
+  const forwardedProto = request.headers.get("x-forwarded-proto")
+
+  if (forwardedHost && forwardedProto) {
+    try {
+      allowedOrigins.add(new URL(`${forwardedProto}://${forwardedHost}`).origin)
+    } catch {
+      // Ignore malformed forwarded origin.
+    }
+  }
+
+  const host = request.headers.get("host")
+
+  if (host) {
+    const protocol = forwardedProto || "https"
+
+    try {
+      allowedOrigins.add(new URL(`${protocol}://${host}`).origin)
+    } catch {
+      // Ignore malformed host-based origin.
+    }
+  }
+
+  return allowedOrigins
+}
+
 function isRequestOriginAllowed(request: Request): boolean {
   const originHeader = request.headers.get("origin")
 
@@ -88,9 +129,9 @@ function isRequestOriginAllowed(request: Request): boolean {
 
   try {
     const requestOrigin = new URL(originHeader).origin
-    const allowedOrigin = new URL(getSiteUrl()).origin
+    const allowedOrigins = getAllowedRequestOrigins(request)
 
-    return requestOrigin === allowedOrigin
+    return allowedOrigins.has(requestOrigin)
   } catch {
     return false
   }
