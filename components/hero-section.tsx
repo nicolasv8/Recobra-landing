@@ -67,7 +67,7 @@ export function HeroSection() {
                   Pruébala 30 días sin riesgo.
                 </p>
                 <p className="text-muted-foreground text-xs md:text-sm">
-                  ⭐️ 40 usuarios ya están recobrando concentración y presencia.
+                  ⭐️ 50 usuarios ya están recobrando concentración y presencia.
                 </p>
               </div>
             </div>
