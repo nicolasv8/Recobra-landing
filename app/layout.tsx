@@ -35,6 +35,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6E92KV6CLV"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-6E92KV6CLV');
+            `,
+          }}
+        />
+      </head>
       <body className={`font-sans antialiased premium-background`}>
         <ReferralCheckoutProvider>{children}</ReferralCheckoutProvider>
         <Analytics />
